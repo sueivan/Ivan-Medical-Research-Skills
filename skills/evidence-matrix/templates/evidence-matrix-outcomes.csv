@@ -1,0 +1,1 @@
+study_id,report_id,arm_or_exposure,comparator,outcome_domain,outcome_name,instrument,primary_secondary,time_point,unit,direction_of_benefit,analysis_population,denominator,effect_measure,estimate,lower_interval,upper_interval,p_value,adjusted_status,covariates,provenance_state,source_location,notes
