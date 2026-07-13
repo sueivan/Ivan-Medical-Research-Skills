@@ -1,24 +1,78 @@
 ---
 name: statistical-design
-description: Use when planning or auditing statistical methods, variables, assumptions, sample size, and analysis logic in medical research.
+description: Use when planning, auditing, or documenting sample-size and precision calculations, statistical analysis plans, estimators, missing-data strategies, multiplicity control, model assumptions, diagnostics, sensitivity analyses, or reproducible statistical workflows for medical research.
 ---
 
 # Statistical Design
 
-## Status
+## 核心原则
 
-**Planned for IMRS v1.0.**
+按“研究问题 → 目标估计量 → 数据结构 → 估计方法 → 假设 → 诊断 → 敏感性分析 → 解释”设计统计方案。样本量服务于主要目标和决策精度；模型诊断用于理解推断对假设的依赖，不用于反复试模型直到得到显著结果。
 
-## Scope
+## 启动检查
 
-This scaffold reserves the skill name and trigger conditions. The operational workflow has not yet passed validation and should not be treated as complete.
+先取得或标记缺失项：研究设计与目标估计量；主要结局、时间点和效应尺度；数据层级与重复测量；预期效应/最小重要差异及来源；方差、基线率、相关性、聚类系数、失访；显著性水平、功效或精度目标；主要分析集；干预后事件；缺失机制；多重比较；软件版本和可用数据。
 
-## Development requirements
+没有可靠输入时给出情景范围，不提供虚假精确的单一样本量。
 
-- define required inputs
-- define non-scope
-- add scientific safeguards
-- add reproducibility requirements
-- test pressure scenarios
-- document failure modes
-- add examples and completion criteria
+## 工作流程
+
+### 1. 固定目标估计量
+
+明确人群、处理/暴露、比较、结局、时间范围、干预后事件策略及汇总尺度。区分目标估计量、估计方法和最终估计值。主要分析与敏感性分析应针对同一目标估计量；回答不同问题的分析标记为补充分析。
+
+### 2. 审计数据结构
+
+识别独立/配对、重复测量、聚类、多中心、纵向、生存、竞争风险、复发事件、多结局和非线性。统计单位、随机化单位、观测单位与分析单位必须对齐；必要时考虑层级模型或稳健标准误。
+
+### 3. 设计样本量或精度
+
+按 [references/sample-size.md](references/sample-size.md) 记录主要检验/区间、效应、方差/率、α、功效、分配比、设计效应、失访和不可评价比例。观察性、诊断、预测和探索性研究可优先按精度、事件数及模型稳定性设计，不机械套“每变量 10 个事件”。
+
+### 4. 预先编写统计分析计划
+
+使用 [assets/sap-template.md](assets/sap-template.md)。在查看按组结果前固定主要/次要结局、分析集、派生变量、模型、协变量、交互、缺失、多重性、异常值、诊断、敏感性和输出表图。所有修改写入 [assets/analysis-decision-log.csv](assets/analysis-decision-log.csv)。
+
+### 5. 选择模型
+
+模型应匹配结局分布、时间结构、目标效应与设计。不要用“正态性检验显著”自动决定参数/非参数方法，也不要因为单变量 P 值不显著删除预设混杂因素。效应估计、置信区间和临床解释优先于单一 P 值。
+
+### 6. 缺失数据与干预后事件
+
+区分干预后事件和真正缺失。说明缺失发生机制、变量和时间；主分析方法须与目标估计量一致。多重插补应包含分析模型相关变量并反映聚类/交互等结构；对不可验证的 MNAR 假设做敏感性分析。
+
+### 7. 模型诊断
+
+按 [references/model-diagnostics.md](references/model-diagnostics.md) 检查残差结构、函数形式、方差、影响点、共线性、过度离散、随机效应、比例风险、校准和内部验证等。诊断必须联系目标推断；图形与领域判断优先于机械阈值。
+
+### 8. 稳健性与复现
+
+敏感性分析针对关键假设：缺失、效应定义、协变量、相关结构、分布、异常值、时间窗和未测混杂。保存原始/分析数据映射、代码、软件环境、随机种子、模型对象、警告和完整输出。代码未运行时明确标注。
+
+## 强制边界
+
+- 不使用事后功效解释阴性或阳性结果；报告效应和区间。
+- 不根据观察到的效应重新声称原研究样本量充分。
+- 不把统计显著性等同于临床意义或证据质量。
+- 不以正态性检验、VIF、Hosmer–Lemeshow 或比例风险检验的单一 P 值决定模型有效性。
+- 不按单变量 P 值筛选混杂因素，也不在看结果后随意选择协变量。
+- 不把逐步回归当作稳定的变量选择默认方案。
+- 不把均值填补、末次观测前移或完全病例分析当作无需假设的默认方法。
+- 不把无事件、完全分离、稀疏数据或过拟合警告静默忽略。
+- 不将训练集表现称为外部验证或临床效用。
+- 不虚构效应、SD、事件率、ICC、失访率、样本量依据或代码运行结果。
+
+## 输出结构
+
+1. 研究问题和目标估计量
+2. 数据结构与分析单位
+3. 样本量/精度假设和情景
+4. 主要与次要分析
+5. 协变量、交互和多重性
+6. 缺失数据与干预后事件
+7. 模型诊断及处理规则
+8. 敏感性和补充分析
+9. 软件、代码与复现清单
+10. 限制及不可推断事项
+
+状态标记：`可执行`、`需补充参数`、`需统计专家复核`、`设计不支持该推断`。

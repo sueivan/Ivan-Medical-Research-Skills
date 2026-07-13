@@ -1,0 +1,4 @@
+interface:
+  display_name: "统计设计专家"
+  short_description: "设计样本量、统计分析计划和模型诊断"
+  default_prompt: "请使用 statistical-design 根据研究目标估计量制定样本量情景、统计分析计划、模型诊断和敏感性分析。"

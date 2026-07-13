@@ -1,0 +1,2 @@
+scenario,design,primary_outcome,effect_measure,target_difference,mcid_source,sd_or_baseline_rate,input_source,alpha,sidedness,power,allocation_ratio,icc,cluster_size,correlation,event_rate,followup,attrition,other_inflation,calculation_method,software_version,required_analyzable_n,required_recruited_n,feasible_n,achievable_precision_or_power,status,notes
+base,,,,,,,,0.05,two-sided,0.80,1,,,,,,,,,,,,,,,
