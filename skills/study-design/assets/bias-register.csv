@@ -1,0 +1,2 @@
+bias_id,target_estimand,bias_type,mechanism,stage,affected_variables,likely_direction,likely_magnitude,design_prevention,implementation_monitoring,analysis_strategy,sensitivity_analysis,residual_limitation,owner,status,notes
+B001,,,,,,,,,,,,,,open,

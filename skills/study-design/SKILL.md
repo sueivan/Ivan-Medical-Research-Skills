@@ -1,24 +1,85 @@
 ---
 name: study-design
-description: Use when selecting, structuring, or auditing an appropriate medical research design.
+description: Use when formulating clinical or epidemiological research questions, choosing among experimental and observational study designs, defining estimands and measurement plans, anticipating bias, or auditing whether a proposed design can answer its intended question.
 ---
 
 # Study Design
 
-## Status
+## 核心原则
 
-**Planned for IMRS v1.0.**
+从决策问题和目标估计量出发选择设计，不从现有数据或熟悉的软件倒推问题。偏倚应在设计阶段预防，在实施阶段监测，在分析阶段处理，在报告阶段透明说明；统计调整不能自动修复选择偏倚、错误时间零点或严重测量误差。
 
-## Scope
+## 启动检查
 
-This scaffold reserves the skill name and trigger conditions. The operational workflow has not yet passed validation and should not be treated as complete.
+先取得或标记缺失项：研究目的（描述、预测、诊断、因果、机制或实施）；目标人群与情境；干预/暴露和比较；结局与时间范围；目标估计量；伦理和可行性；数据来源与时间结构；预期混杂、选择、测量和缺失；样本/事件量；主要分析和报告指南。
 
-## Development requirements
+若用户只提出宽泛主题，先用 [assets/research-question-canvas.md](assets/research-question-canvas.md) 固定问题，再推荐设计。
 
-- define required inputs
-- define non-scope
-- add scientific safeguards
-- add reproducibility requirements
-- test pressure scenarios
-- document failure modes
-- add examples and completion criteria
+## 工作流程
+
+### 1. 分类研究问题
+
+- 描述：频率、分布或自然史。
+- 病因/干预效果：比较反事实结果，需要因果估计目标。
+- 诊断准确性：指数试验与参考标准在目标使用情境中的表现。
+- 预后：在明确起点和人群中的未来结局风险。
+- 预测模型：开发、验证、更新或临床效用。
+- 机制：中介、路径或生物学过程。
+- 实施：可接受性、采用、忠实度、覆盖和效果。
+
+不同目的不可用同一“相关性研究”含糊代替。
+
+### 2. 写出目标估计量
+
+明确人群、处理/暴露策略、比较、结局、时间范围、汇总尺度及干预后事件处理。随机试验还应区分治疗策略、依从/方案效应等目标；观察性因果研究应描述拟模拟的目标试验。详见 [references/question-estimand.md](references/question-estimand.md)。
+
+### 3. 选择设计
+
+使用 [references/design-selection.md](references/design-selection.md) 比较随机试验、队列、病例对照、横断面、诊断、预后、真实世界和准实验设计。输出至少两个可行方案及其效度、伦理、时间、成本和数据要求，再给出首选方案。
+
+### 4. 绘制时间线和入组机制
+
+标记资格、时间零点、分配/暴露、协变量测量、随访、结局及删失。资格、处理分配和随访起点不一致可产生不死时间等偏倚。病例对照需定义来源人群和对照抽样；诊断研究需定义临床路径和参考标准。
+
+### 5. 建立偏倚登记册
+
+使用 [references/bias-control.md](references/bias-control.md) 和 [assets/bias-register.csv](assets/bias-register.csv)，逐项记录偏倚机制、发生环节、可能方向、设计预防、实施监测、分析处理和残余限制。优先使用因果图/领域知识选择混杂因素，不按单变量 P 值筛选。
+
+### 6. 设计测量与质量控制
+
+定义变量操作化、测量工具、时间点、盲法、重复测量、校准、评分者一致性、数据字典和修改记录。信度不等于效度；替代结局需说明与患者重要结局的距离。
+
+### 7. 对齐样本量与分析
+
+样本量依据主要估计目标、效应/精度、事件率、聚类、失访和模型复杂度，而非统一经验比例。预设主要/次要结局、协变量、缺失数据、交互、敏感性分析和多重性处理。复杂统计部分转交 `statistical-design`。
+
+### 8. 伦理、注册与报告
+
+审查知情同意、风险收益、隐私、公平纳入、利益冲突和数据治理。干预试验按适用要求注册并使用当前 SPIRIT/CONSORT；观察性研究参考 STROBE；诊断研究参考 STARD。报告指南改善透明度，不证明设计或实施质量。
+
+## 强制边界
+
+- 不把横断面关联写成时间顺序或因果效应。
+- 不把病例对照研究直接计算的 OR 自动称为风险比。
+- 不把回顾性/前瞻性当作设计质量等级。
+- 不把倾向评分、回归或机器学习当作“消除混杂”。
+- 不调整暴露后的中介、碰撞变量或由选择产生的变量而不说明目标。
+- 不按单变量显著性筛选混杂因素。
+- 不把“随机抽样”与“随机分配”混为一谈。
+- 不因使用已验证量表就假设在当前语言、人群和情境中有效。
+- 不把报告指南清单当作研究质量评分工具。
+- 不虚构伦理批准、注册、合作、样本量依据、测量效度或数据可得性。
+
+## 输出结构
+
+1. 精确研究问题与目标估计量
+2. 候选设计比较和首选理由
+3. 研究时间线与抽样框架
+4. 暴露/干预、比较与结局定义
+5. 偏倚登记册与控制措施
+6. 测量和数据质量计划
+7. 样本量与分析框架
+8. 伦理、注册和报告要求
+9. 可行性、残余偏倚和不可推断事项
+
+结论标记：`设计可回答`、`需重新设计`、`仅支持关联/描述`、`资料不足`。

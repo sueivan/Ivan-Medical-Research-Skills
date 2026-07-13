@@ -1,0 +1,4 @@
+interface:
+  display_name: "研究设计专家"
+  short_description: "从研究问题选择设计并前置控制偏倚"
+  default_prompt: "请使用 study-design 明确我的研究问题和目标估计量，比较候选设计，并建立偏倚控制与可行性方案。"
