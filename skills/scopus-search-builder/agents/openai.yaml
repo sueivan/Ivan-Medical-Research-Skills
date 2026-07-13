@@ -1,0 +1,4 @@
+interface:
+  display_name: "Scopus 检索式构建器"
+  short_description: "构建、转换并审计可复现的 Scopus 检索式"
+  default_prompt: "请使用 scopus-search-builder 将我的研究问题转换为 Scopus 高级检索式，逐块测试并审计字段、邻近、限制和可复现性。"
