@@ -1,0 +1,4 @@
+interface:
+  display_name: "CiteSpace 专家"
+  short_description: "设计、审计并谨慎解释 CiteSpace 知识图谱"
+  default_prompt: "请使用 citespace-expert 审计我的 CiteSpace 数据、参数、聚类、突现结果和图谱解释，并给出可复现报告。"

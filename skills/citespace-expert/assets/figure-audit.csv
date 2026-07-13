@@ -1,0 +1,2 @@
+figure_id,analysis_question,node_type,edge_meaning,data_range,software_version,time_slice,selection_criteria,pruning,cluster_label_method,nodes,edges,density,quality_metrics,sensitivity_run,source_verification,status,overinterpretation_risk,notes
+F1,,,,,,,,,,,,,,,,,,,
