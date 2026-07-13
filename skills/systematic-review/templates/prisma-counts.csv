@@ -1,0 +1,13 @@
+stage,source_or_category,count,derivation_file,verified_by,verification_date,notes
+identified,database_or_register,,,
+identified,other_method,,,
+removed_before_screening,duplicates,,,
+removed_before_screening,automation_or_other_reason,,,
+screened,title_abstract,,,
+excluded,title_abstract,,,
+sought_for_retrieval,full_text,,,
+not_retrieved,full_text,,,
+assessed_for_eligibility,full_text,,,
+excluded_full_text,reason_specific,,,
+included,studies,,,
+included,reports,,,

@@ -1,86 +1,96 @@
-# Systematic Review Protocol Record
+# Systematic Review Protocol
 
 ## Administrative information
 
 - Title:
 - Review team and roles:
+- Corresponding author:
 - Funding/conflicts:
-- Protocol guideline:
-- Registry/identifier/status:
-- Version/date:
+- Registration status/ID/date:
+- Protocol version/date:
 
-## Rationale and question
+## Rationale and objectives
 
-- Existing reviews and added value:
-- Decision context/users:
+- Background:
 - Review question:
+- Primary objective:
+- Secondary objectives:
+- Intended decision use:
 
-## Eligibility
+## Eligibility criteria
 
-| Element | Operational criterion | Rationale |
-|---|---|---|
-| Population | | |
-| Intervention/exposure | | |
-| Comparator | | |
-| Outcomes | | |
-| Study designs | | |
-| Setting | | |
-| Dates/language/status | | |
-
-## Outcomes
-
-| Outcome | Importance | Definition/instrument | Time window | Effect measure | Direction | Hierarchy |
-|---|---|---|---|---|---|---|
-| | | | | | | |
+| Domain | Include | Exclude | Rationale |
+|---|---|---|---|
+| Population | | | |
+| Intervention/exposure/index test | | | |
+| Comparator/reference standard | | | |
+| Outcomes | | | |
+| Study designs | | | |
+| Setting | | | |
+| Time/follow-up | | | |
+| Publication forms/language | | | |
 
 ## Information sources and searches
 
-- Databases/platforms/coverage:
-- Supplementary sources:
+- Databases/platforms:
+- Registries:
+- Grey literature:
+- Citation searching:
+- Coverage and update plan:
 - Search peer review:
-- Draft full strategy location:
-- Update search plan:
 
 ## Study records
 
-- Reference-management/deduplication:
-- Screening workflow/adjudication:
-- Full-text exclusion categories:
-- Automation/AI and human verification:
+- Reference manager/review software:
+- Deduplication method:
+- Screening pilot:
+- Title/abstract reviewers:
+- Full-text reviewers:
+- Consensus/adjudication:
+- Automation/AI role and validation:
+
+## Data collection
+
 - Study/report linkage:
-
-## Data extraction
-
-- Form and piloting:
-- Duplicate/checking workflow:
-- Source/provenance rules:
-- Missing-data/author-contact plan:
+- Extraction form and pilot:
+- Extractors/checkers:
+- Outcomes/time points:
+- Missing data and author contact:
+- Derived data methods:
 
 ## Risk of bias
 
 - Tool/version by design:
-- Outcome/result level:
-- Reviewer/adjudication process:
+- Reviewers:
+- Consensus:
+- Use in synthesis:
 
 ## Synthesis
 
-- Grouping and compatibility criteria:
+- Planned synthesis groups:
 - Effect measures:
-- Models/estimators:
+- Quantitative model/estimator:
 - Unit-of-analysis issues:
 - Heterogeneity:
 - Subgroups/meta-regression:
 - Sensitivity analyses:
-- Narrative/SWiM plan:
+- Reporting bias:
+- Synthesis without meta-analysis:
 
-## Reporting biases and certainty
+## Certainty
 
-- Missing-result/publication-bias methods:
-- Certainty framework:
-- Summary of Findings plan:
+- Framework/version:
+- Outcomes assessed:
+- Reviewers and consensus:
 
-## Amendments, dissemination, and data sharing
+## Reporting, dissemination, and data
 
-- Amendment process:
-- Dissemination:
-- Data/code/materials:
+- Reporting guideline:
+- Data/code availability:
+- Update triggers:
+
+## Amendments
+
+| Date/version | Change | Rationale | Before/after results known | Impact |
+|---|---|---|---|---|
+| | | | | |

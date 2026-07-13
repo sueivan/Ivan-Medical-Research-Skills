@@ -1,47 +1,55 @@
 # Systematic Review Quality Checklist
 
-## Protocol and governance
-- [ ] Review rationale and added value are stated
-- [ ] Team roles and conflicts are declared
-- [ ] Protocol guideline and registration status are recorded
+## Question and protocol
+- [ ] Review type and decision purpose are explicit
+- [ ] Design-appropriate question framework is complete
 - [ ] Eligibility criteria are operational
 - [ ] Primary/secondary outcomes and time points are prespecified
-- [ ] Effect measures and synthesis plan are prespecified
-- [ ] Amendments and deviations are dated and explained
+- [ ] Protocol and registration states are accurate
+- [ ] Amendments include date, rationale, timing, and impact
 
 ## Search and records
-- [ ] Appropriate databases and supplementary sources are searched
-- [ ] Exact strategies, platforms, coverage, dates, and limits are preserved
-- [ ] PRESS review status is stated
-- [ ] Raw exports and deduplication log are preserved
-- [ ] Duplicate records and multiple study reports are distinguished
-- [ ] Retraction/correction status is considered
+- [ ] Multiple appropriate sources are justified
+- [ ] Every database has an independently translated strategy
+- [ ] Executed queries, dates, coverage, and counts are preserved
+- [ ] Unrun queries are labeled draft
+- [ ] Raw exports and export settings are archived
+- [ ] Deduplication rules, software, and counts are recorded
 
-## Screening and extraction
+## Screening and linkage
 - [ ] Screening manual was piloted
-- [ ] Independent review/adjudication follows the protocol
-- [ ] Full-text exclusions use one primary reason
-- [ ] PRISMA counts reconcile
-- [ ] Study and report IDs are linked
-- [ ] Extraction form was piloted
-- [ ] Critical outcome data were independently checked
-- [ ] Missing-data contacts and derivations are recorded
+- [ ] Independent reviewer decisions are preserved
+- [ ] Automation does not make opaque final exclusions
+- [ ] Retrieval attempts are documented
+- [ ] Full-text exclusions use specific reasons
+- [ ] Reports are linked to underlying studies
+- [ ] Overlapping populations are addressed
 
-## Appraisal and synthesis
-- [ ] RoB tool/version matches each design
-- [ ] Domain judgments have source support
-- [ ] RoB is assessed at the appropriate outcome/result level
-- [ ] Clinical/methodological compatibility precedes pooling
-- [ ] Effect measures, models, and unit-of-analysis methods are justified
-- [ ] Narrative synthesis avoids significance vote counting
-- [ ] Heterogeneity and sensitivity analyses are appropriate
-- [ ] Reporting biases and missing evidence are assessed cautiously
+## Extraction and bias
+- [ ] Extraction form and data dictionary are piloted
+- [ ] Provenance and missingness states are explicit
+- [ ] Outcomes, time points, units, denominators, and estimates are identifiable
+- [ ] Calculations and author contacts are logged
+- [ ] Bias tools match study design and current guidance
+- [ ] Signaling support and consensus are recorded
+- [ ] Reporting scores do not replace risk of bias
 
-## Certainty and reporting
-- [ ] Certainty is outcome-specific
-- [ ] GRADE or other framework reasons are explicit
-- [ ] Conclusions align with effect and certainty
-- [ ] Harms and applicability are considered
-- [ ] Current PRISMA checklist/extension is used
-- [ ] Search strategies, data, code, and supplements are available as permitted
-- [ ] Nothing is invented or falsely reported as completed
+## Synthesis and certainty
+- [ ] Synthesis groups are prespecified and clinically coherent
+- [ ] Pooling is justified rather than automatic
+- [ ] Effect measures and model choices are prespecified
+- [ ] Complex unit-of-analysis issues are handled
+- [ ] Heterogeneity is not reduced to I² alone
+- [ ] Subgroups use interaction evidence
+- [ ] Sensitivity and reporting-bias methods are appropriate
+- [ ] Non-pooled synthesis avoids significance vote counting
+- [ ] Certainty is outcome specific with documented domain judgments
+- [ ] Unexecuted pooling/certainty is labeled pending
+
+## Reporting and completion
+- [ ] PRISMA counts derive from logs
+- [ ] Abstract, flow diagram, tables, and text agree
+- [ ] Complete search strategies are provided
+- [ ] Protocol deviations are disclosed
+- [ ] Funding, conflicts, data, code, and contributions are reported
+- [ ] Conclusions reflect uncertainty, bias, certainty, and applicability

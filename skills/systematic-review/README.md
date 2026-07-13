@@ -1,26 +1,24 @@
 # Systematic Review
 
-Status: **operational beta (v0.1.0)**
+Status: **operational workflow beta (v0.1.0)**
 
-`systematic-review` coordinates a reproducible biomedical systematic review from protocol through PRISMA reporting.
+`systematic-review` manages protocol, searching, deduplication, screening, study linkage, extraction, risk of bias, synthesis decisions, certainty assessment, PRISMA reporting, and reproducibility.
 
-## Main outputs
+## IMRS integration
 
-- protocol and amendment log
-- eligibility and outcome framework
-- reproducible search/deduplication records
-- screening manual and PRISMA counts
-- study/report linkage and evidence matrix
-- design-appropriate risk-of-bias tables
-- synthesis, heterogeneity, and sensitivity plan
-- reporting-bias assessment
-- outcome-specific certainty and Summary of Findings table
-- PRISMA-aligned manuscript and supplements
+```text
+mesh-expert
+→ pubmed-search-builder / wos-search-builder
+→ reference-verifier
+→ evidence-matrix
+→ systematic-review synthesis and reporting
+→ medical-reviewer
+```
+
+Meta-analysis and GRADE outputs must remain pending until actually performed with recognized methods; this Skill never fabricates pooled estimates or certainty ratings.
 
 ## Invoke
 
 ```text
-Use @systematic-review to design and audit a biomedical systematic review of [question]. Build a protocol-level workflow, identify missing decisions, and do not claim that searches, screening, extraction, appraisal, or analysis occurred without records.
+Use @systematic-review to develop and manage a protocol-driven systematic review of [question]. Apply design-specific methods, route searches and verification through operational IMRS skills, preserve independent screening decisions, and report all unfinished steps as pending.
 ```
-
-This skill coordinates `mesh-expert`, `pubmed-search-builder`, `wos-search-builder`, `reference-verifier`, `evidence-matrix`, and `meta-analysis` when applicable.

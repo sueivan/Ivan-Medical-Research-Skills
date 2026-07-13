@@ -1,414 +1,386 @@
 ---
 name: systematic-review
-description: Use when planning, conducting, auditing, updating, or reporting a biomedical systematic review, including protocol development, eligibility criteria, searching, screening, data extraction, risk-of-bias assessment, synthesis, certainty assessment, PRISMA reporting, and reproducibility.
+description: Use when planning, conducting, auditing, updating, or reporting a biomedical systematic review, with or without meta-analysis, including protocol development, eligibility, comprehensive searching, deduplication, screening, study linkage, extraction, risk of bias, synthesis planning, certainty assessment, PRISMA reporting, and reproducibility.
 ---
 
 # Systematic Review
 
 ## Overview
 
-Conduct a transparent, reproducible biomedical systematic review from question formulation through reporting. Prespecify methods, preserve an audit trail, use design-appropriate appraisal, separate study findings from reviewer judgments, and align conclusions with evidence certainty. Fluent narrative is not a substitute for a defensible review process.
+Manage an end-to-end biomedical systematic review using prespecified, reproducible methods. Route vocabulary, searches, reference identity, and extraction to operational IMRS skills; enforce independent review processes and design-appropriate appraisal; distinguish planned, executed, verified, and pending steps.
+
+A systematic review is defined by its methods, not by the presence of a meta-analysis. Do not perform quantitative pooling merely because numerical data exist.
+
+## Operational dependencies
+
+Use these completed IMRS skills when applicable:
+
+| Task | Skill |
+|---|---|
+| MeSH and free-text mapping | `mesh-expert` |
+| PubMed strategy | `pubmed-search-builder` |
+| WoS Core Collection strategy | `wos-search-builder` |
+| PMID/DOI and publication-status verification | `reference-verifier` |
+| Study/report linkage and data extraction | `evidence-matrix` |
+| Methodological audit | `medical-reviewer` |
+| Multi-skill routing | `imrs-master` |
+
+The dedicated `meta-analysis` and `grade-assistant` modules are not assumed operational in v0.1.0. When pooling or certainty assessment is required, use current recognized methods transparently, obtain specialist input when needed, and label unfinished outputs `PENDING` rather than inventing results.
 
 ## When to use
 
 Use this skill to:
 
-- develop or audit a systematic-review protocol
-- formulate PICO/PECO or another suitable eligibility framework
-- coordinate database searching and supplementary search methods
-- design deduplication, screening, extraction, and reviewer-resolution workflows
-- select risk-of-bias tools by study design
-- plan narrative synthesis or meta-analysis
-- assess reporting biases and certainty of evidence
-- prepare PRISMA-aligned manuscripts, abstracts, flow diagrams, checklists, and supplements
-- update an existing systematic review
+- determine whether a question is suitable for systematic review
+- write or audit a protocol
+- manage searches, screening, extraction, appraisal, synthesis, certainty, and reporting
+- conduct intervention, diagnostic, prognostic, prevalence, etiology, qualitative, mixed-methods, or other biomedical reviews
+- update an existing review
+- review a systematic-review manuscript or thesis
+- produce a reproducibility and decision trail
 
 ## When not to use
 
 Do not use this skill to:
 
-- label a narrative review “systematic” because it contains a database search
-- fabricate registration, search results, exclusion counts, extracted data, risk-of-bias judgments, effect estimates, or GRADE ratings
-- conduct meta-analysis without suitable data, assumptions, and a dedicated statistical workflow
-- treat publication quality scores as substitutes for domain-based risk-of-bias assessment
-- make clinical recommendations that exceed the evidence and certainty
-- automate final inclusion, risk-of-bias, or certainty decisions without accountable human review
+- label a selective narrative search as systematic
+- fabricate protocol registration, search dates, record counts, screening decisions, data, risk-of-bias judgments, pooled effects, or certainty ratings
+- treat bibliometric analysis as a substitute for evidence synthesis
+- automatically pool clinically or methodologically incompatible studies
+- apply one risk-of-bias tool to all study designs
+- use reporting compliance as proof of low bias
+- conduct a scoping review under a systematic-review label when the objective is only to map concepts and gaps
 
 ## Required inputs
 
-Obtain or declare unresolved:
+Obtain or mark unresolved:
 
-1. review question and decision context
-2. population, intervention/exposure, comparator, outcomes, and eligible designs
-3. protocol/registration status and review team roles
-4. databases, platforms, coverage dates, and supplementary sources
-5. language, publication status, date, and report-type restrictions
-6. primary and secondary outcomes with time points
-7. effect measures and synthesis plan
-8. screening and extraction workflow
-9. design-specific risk-of-bias tools
-10. certainty framework, commonly GRADE for intervention outcomes
-11. reporting guideline and relevant extensions
-12. funding, conflicts of interest, and stakeholder involvement
+1. review question, rationale, and intended decision use
+2. review type and eligible study designs
+3. PICOS/PECO or other design-appropriate framework
+4. eligibility criteria and synthesis unit
+5. databases, registries, grey-literature sources, citation searching, and date coverage
+6. protocol/registration status
+7. reviewer team and independence procedures
+8. outcomes, time points, effect measures, and synthesis plan
+9. risk-of-bias tools and certainty framework
+10. available citations, full texts, exports, and previous-review materials
+11. software and reporting requirements
+12. conflicts of interest, funding, and deadline
 
-When critical decisions are missing, draft options and mark them for protocol-level approval rather than deciding invisibly.
+Consequential ambiguity about population, intervention/exposure, outcome, design, or time point must be resolved before final eligibility and synthesis decisions.
 
 ## Review states
 
-Use explicit states:
+Preserve these states across the project:
 
-- `CONCEPT`
-- `PROTOCOL_DRAFT`
-- `REGISTERED/PROTOCOL_FINAL`
+- `PLANNED`
+- `REGISTERED`
 - `SEARCHED`
-- `SCREENING`
+- `DEDUPLICATED`
+- `SCREENED_TITLE_ABSTRACT`
+- `SCREENED_FULL_TEXT`
+- `INCLUDED`
 - `EXTRACTED`
-- `APPRAISED`
+- `RISK_OF_BIAS_ASSESSED`
 - `SYNTHESIZED`
 - `CERTAINTY_ASSESSED`
-- `FINAL_REPORTED`
-- `UPDATE_PENDING`
+- `REPORTED`
+- `UPDATED`
+- `PENDING`
+- `DEVIATION_RECORDED`
 
-Do not describe a protocol draft as a completed review.
+Never promote a state without evidence.
 
 ## Workflow
 
-### 1. Confirm that a systematic review is appropriate
+### 1. Confirm systematic-review suitability
 
-Clarify the decision problem, users, existing reviews, likely evidence base, resources, and timeline. Check whether an up-to-date high-quality review already answers the question and whether an update, overview, scoping review, or rapid review is more appropriate.
+Check whether the question requires exhaustive identification and critical synthesis of studies. Clarify whether the objective concerns effects, association, diagnosis, prognosis, prevalence, experiences, implementation, or another construct.
 
-Avoid unnecessary duplication; document the added value of the new review.
+If the objective is broad mapping of concepts, methods, or gaps, consider a scoping review. If evidence is sparse, a systematic review may still be appropriate, but the likely synthesis must be realistic.
 
-### 2. Build the review team and governance
+### 2. Formulate the question and objectives
 
-Assign accountable roles for:
+Use the framework matched to the review type. Define:
 
-- clinical/domain expertise
-- information retrieval
-- screening and extraction
-- statistics/meta-analysis
-- risk of bias and certainty assessment
-- adjudication
-- patient/public or stakeholder input where appropriate
+- population and setting
+- intervention/exposure/index test or phenomenon
+- comparator/reference standard when applicable
+- outcomes and measurement hierarchy
+- study designs
+- time points
+- effect or association of interest
+- primary and secondary objectives
 
-Declare funding and conflicts. AI may assist organization, extraction drafts, or language, but final methodological judgments require named human responsibility.
+Avoid changing the question after seeing results without recording an amendment.
 
-### 3. Formulate the question and eligibility criteria
+### 3. Develop eligibility criteria
 
-Define operational criteria for:
+Specify operational inclusion and exclusion criteria before screening:
 
-- population and condition/diagnostic criteria
-- intervention or exposure
-- comparator
-- outcomes and measurement time points
-- eligible study designs
-- setting and context
-- publication status, language, dates, and report types
+- participants and diagnostic criteria
+- interventions/exposures and comparators
+- outcomes and minimum reporting requirements
+- designs and publication forms
+- setting, dates, language, and geography when justified
+- minimum follow-up
+- handling of preprints, abstracts, theses, protocols, corrections, retractions, and multiple reports
 
-Separate eligibility elements from search concepts. Not every eligibility criterion belongs in the search query.
+Do not exclude studies solely because findings are negative, nonsignificant, inconvenient, or not freely accessible.
 
-### 4. Prespecify outcomes and effect measures
+### 4. Write and register the protocol
 
-For each outcome specify:
+The protocol should include rationale, question, eligibility, information sources, complete draft strategies, study-selection process, extraction fields, risk-of-bias tools, effect measures, synthesis models, heterogeneity, subgroups, sensitivity analyses, reporting-bias methods, certainty assessment, conflicts, funding, and dissemination.
 
-- construct and accepted instruments/definitions
-- primary or secondary status
-- measurement time points/windows
-- direction of benefit/harm
-- preferred effect measure
-- hierarchy for multiple instruments or analyses
-- minimal important difference when available
+Use a suitable registry such as PROSPERO only when the review is eligible and registration is actually accepted. A submitted or drafted registration is not a registered protocol. Preserve registration ID and date only after verification.
 
-Do not choose outcomes or time points after seeing favorable results without declaring the change.
+Record amendments with date, rationale, timing relative to results, and impact.
 
-### 5. Develop and register the protocol
+### 5. Design the search
 
-Follow an appropriate protocol guideline, such as PRISMA-P, and register in a suitable registry when eligible, such as PROSPERO or another domain registry. Registration availability and eligibility must be verified at the time of submission.
+Build concept maps with `mesh-expert`, PubMed strategies with `pubmed-search-builder`, and WoS strategies with `wos-search-builder`. Translate each database independently; do not replace field tags mechanically.
 
-Prespecify:
+For comprehensive reviews, consider multiple bibliographic databases plus registries, grey literature, backward/forward citation searching, related-article searches, and author contact as appropriate.
 
-- objectives and eligibility
-- information sources and full draft search strategy
-- screening and extraction
-- risk-of-bias methods
-- synthesis and heterogeneity
-- subgroup and sensitivity analyses
-- reporting-bias assessment
-- certainty assessment
-- amendment process
+Document every source, platform, coverage, exact query, filters, and search date. Consider peer review of key strategies, such as PRESS, when feasible.
 
-Record every amendment with date, rationale, and whether it was made before or after relevant results were known.
+### 6. Execute, export, and archive searches
 
-### 6. Design the search
+For every source save:
 
-Use database-specific skills:
+- exact executed query
+- date and database coverage
+- result count actually observed
+- export content and format
+- batch ranges and filenames
+- search history or screenshot/text export
+- rerun/update procedure
 
-- `mesh-expert` for controlled-vocabulary mapping
-- `pubmed-search-builder` for PubMed
-- `wos-search-builder` for Web of Science
+Label unexecuted strategies `DRAFT—NOT RUN`. Archive raw exports read-only when possible.
 
-Involve an information specialist when feasible. Use multiple appropriate databases; one database is rarely sufficient for a comprehensive biomedical review.
+### 7. Deduplicate records reproducibly
 
-Consider:
-
-- trial registries
-- reference lists and forward citation searching
-- grey literature, preprints, dissertations, conference sources, or regulatory documents when relevant
-- author/contact searches
-- correction and retraction status
-
-Record exact strategies, platforms, coverage, search dates, and all limits. Consider PRESS peer review of major strategies.
-
-### 7. Manage records and deduplicate
-
-Preserve raw exports. Record import files, database source, counts, deduplication software/version, algorithm/rules, and manual decisions.
-
-Distinguish:
-
-- duplicate database records
-- multiple reports of one study
-- conference abstract and full article
-- preprint and journal publication
-- correction/retraction notices
-
-Deduplication must not erase study–report relationships.
-
-### 8. Pilot and conduct screening
-
-Develop a screening manual with operational inclusion/exclusion rules. Pilot a diverse sample and refine rules before full screening.
-
-Use at least two independent reviewers for title/abstract and full-text screening when the review standard or protocol requires it. Resolve disagreements by consensus or a predefined adjudicator.
+Preserve raw records and perform staged deduplication using identifiers first, then normalized title, authors, year, journal, and manual review. Distinguish duplicate database records from multiple reports of one study.
 
 Record:
 
-- decisions by reviewer
-- conflict resolution
-- full-text exclusion reason using one primary standardized category
-- unavailable reports and retrieval attempts
-- automation tools and human verification
+- software/version
+- import totals by source
+- automated and manual rules
+- number removed at each stage
+- ambiguous decisions
+- final unique-record count
 
-Do not use inter-rater agreement as proof that eligibility criteria are scientifically valid.
+Never infer missing PRISMA counts.
 
-### 9. Link reports to studies
+### 8. Pilot screening
 
-Assign `study_id` and `report_id`. Use registrations, authors, sites, dates, sample sizes, interventions, and baseline characteristics to identify companion reports or overlapping cohorts.
+Create a decision manual from eligibility criteria. Pilot a diverse sample with all reviewers, discuss disagreements, refine definitions, and update the protocol/manual transparently.
 
-Count studies and reports separately in the manuscript and flow diagram where appropriate.
+Agreement statistics may supplement but do not replace consensus and calibration. Do not invent kappa values.
 
-### 10. Design and pilot data extraction
+### 9. Screen titles and abstracts
 
-Use `reference-verifier` to confirm citations and `evidence-matrix` to structure extraction.
+Use at least two independent reviewers when required by the protocol/standard. Preserve each reviewer's decision before consensus. Use `include`, `exclude`, and `uncertain` states.
 
-Pilot the form on diverse studies. Extract:
+AI or automation may prioritize or assist only under a declared, validated workflow. Do not allow opaque automation to make unreviewed final exclusions.
 
-- design, setting, recruitment, funding, conflicts
-- participant eligibility and baseline characteristics
-- intervention/exposure and comparator details
-- outcomes, instruments, time points, and analysis populations
-- numerical results, uncertainty, and covariate adjustment
-- author limitations and reviewer queries
+### 10. Retrieve and screen full texts
 
-Prefer duplicate independent extraction or extraction plus independent checking for critical outcomes. Preserve source locations and provenance labels.
+Document retrieval attempts. Apply prespecified criteria independently. Assign one primary, specific exclusion reason per excluded full text for the PRISMA report, while retaining detailed notes internally.
 
-### 11. Obtain missing information
+Do not use vague reasons such as “irrelevant” when a specific criterion applies. Preserve unavailable reports separately from confirmed ineligible reports.
 
-Contact authors when important methods or outcome data are missing or ambiguous. Record dates, attempts, responses, and decisions. Do not impute or derive missing data without a prespecified, transparent method.
+### 11. Link reports to underlying studies
 
-### 12. Assess risk of bias
+Use `reference-verifier` and `evidence-matrix` to distinguish studies from reports. Link journal articles, preprints, abstracts, follow-ups, secondary analyses, protocols, registrations, corrections, and retractions.
 
-Use a named, current, design-appropriate tool and version, for example:
+Avoid double counting participants and outcomes. Define which report supplies each datum.
 
-- RoB 2 for randomized trials
-- ROBINS-I for non-randomized intervention studies
-- QUADAS-2 or a current appropriate successor/extension for diagnostic-accuracy studies
-- PROBAST or an appropriate current tool for prediction-model studies
-- tools suited to prevalence, qualitative, or other eligible designs when justified
+### 12. Extract data
 
-Verify current guidance before use. Apply domain-level signaling questions and support judgments with quotes/source locations. Do not convert domain judgments into an unvalidated total quality score.
+Pilot a structured form. Extract study methods, participants, interventions/exposures, comparators, outcomes, time points, analysis populations, numerical results, funding, conflicts, and author-reported limitations.
 
-Risk of bias may be outcome/result specific; do not assume one judgment applies to every outcome and time point.
+Use provenance states such as `REPORTED`, `CALCULATED`, `INFERRED`, `NOT_REPORTED`, `UNCLEAR`, and `ABSTRACT_ONLY`. Duplicate or checked extraction must match the protocol.
 
-### 13. Decide whether studies can be synthesized
+Record conversions, formulas, assumptions, graph extraction, imputation, and author contacts. Never estimate unavailable data merely to enable pooling.
 
-Assess clinical and methodological compatibility before statistical heterogeneity. Compare populations, interventions/exposures, comparators, outcome constructs, time points, designs, and bias.
+### 13. Assess risk of bias
 
-If meta-analysis is inappropriate, conduct a structured narrative synthesis; do not pool merely because numerical data exist.
+Select current, design-appropriate, domain-based tools. Examples may include current RoB tools for randomized trials, ROBINS tools for nonrandomized interventions, QUADAS tools for diagnostic studies, PROBAST-type tools for prediction models, and appropriate tools for prevalence, prognosis, qualitative, animal, or other designs.
 
-### 14. Conduct quantitative synthesis when justified
+Verify the current tool/version and guidance. Use at least two reviewers when planned. Record signaling-question support, domain judgments, overall rules, disagreements, and consensus.
 
-Prespecify and document:
+Do not replace risk of bias with reporting scores, journal metrics, or a homemade total score.
 
-- effect measure and direction
+### 14. Decide whether studies can be synthesized together
+
+Assess clinical, methodological, and statistical compatibility:
+
+- population and baseline risk
+- intervention/exposure definition and dose
+- comparator/reference group
+- outcome construct, instrument, and direction
+- time point
+- design and bias
+- effect measure and analysis
+
+Create synthesis groups before examining favorable results. If pooling is inappropriate, use structured synthesis without meta-analysis and explain why.
+
+### 15. Plan and conduct quantitative synthesis when justified
+
+Predefine:
+
+- effect measure and data scale
+- fixed/common-effect or random-effects rationale
+- estimator and confidence-interval method
 - unit-of-analysis handling
-- fixed-effect or random-effects model and rationale
-- heterogeneity estimators and uncertainty
-- multi-arm, cluster, crossover, repeated-measure, and zero-event handling
-- conversions and imputation
-- software/package/version and code
-- subgroup, meta-regression, and sensitivity analyses
+- multiarm, cluster, crossover, repeated-measure, and zero-event methods
+- heterogeneity assessment
+- subgroup and meta-regression hypotheses
+- sensitivity analyses
+- small-study/reporting-bias methods
+- software/version and code
 
-Interpret I² alongside effect estimates, confidence/prediction intervals, number/size of studies, and clinical heterogeneity. Do not use a single I² cutoff as the sole pooling decision.
+Do not select models or exclusions because they produce significance. Report effect estimates and uncertainty; do not interpret I² alone as clinical heterogeneity. Seek statistical expertise for complex synthesis.
 
-Use `meta-analysis` for detailed statistical execution.
+If quantitative synthesis has not actually been executed and verified, mark it `PENDING—NO POOLED RESULT`.
 
-### 15. Conduct structured synthesis without meta-analysis
+### 16. Conduct structured synthesis without meta-analysis
 
-Follow current SWiM guidance when applicable. Group studies by prespecified clinical/methodological features, report effect direction and magnitude where available, avoid vote counting by statistical significance, and explain how certainty was assessed.
+When pooling is unsuitable, organize studies by prespecified synthesis groups and report direction, magnitude, uncertainty, risk of bias, and consistency. Follow current synthesis-without-meta-analysis guidance where applicable.
 
-Narrative synthesis must remain systematic and transparent.
+Avoid vote counting by statistical significance. Do not state that “most studies were significant” as a substitute for effect synthesis.
 
-### 16. Investigate heterogeneity
+### 17. Investigate heterogeneity and robustness
 
-Use prespecified subgroup or meta-regression analyses only when scientifically plausible and sufficiently supported. Distinguish within-study from between-study comparisons. Treat exploratory findings as hypothesis-generating.
+Distinguish clinical, methodological, and statistical heterogeneity. Conduct only prespecified or clearly labeled exploratory analyses. Interpret subgroup differences using interaction evidence rather than separate within-group significance.
 
-Avoid data-driven subgroup proliferation and causal claims from ecological study-level moderators.
+Sensitivity analyses may examine risk of bias, missing data, model choices, effect measures, assumptions, duplicate populations, and influential studies. Record all deviations.
 
-### 17. Assess reporting biases and missing evidence
+### 18. Assess reporting bias and missing evidence
 
-Consider:
+Use methods appropriate to the number and type of studies. Funnel plots and tests have limitations and should not be used mechanically with very few studies or substantial heterogeneity.
 
-- selective nonreporting within studies
-- publication bias and small-study effects
-- registry/protocol discrepancies
-- unavailable full texts or outcomes
+Compare protocols, registrations, methods, and reported outcomes. Consider nonpublication, selective outcome reporting, unavailable results, and time-lag bias.
 
-Funnel-plot asymmetry has multiple causes and is unreliable with few studies. Use statistical tests only when assumptions and study numbers are adequate. Do not equate symmetry with absence of bias.
+### 19. Assess certainty of evidence
 
-### 18. Assess certainty of evidence
+Apply an outcome-specific recognized framework such as GRADE when appropriate. Separate certainty from risk of bias. Record judgments and reasons for domains such as risk of bias, inconsistency, indirectness, imprecision, publication bias, and applicable upgrading considerations.
 
-For each critical and important outcome, apply an appropriate framework, commonly GRADE for intervention effects. Consider risk of bias, inconsistency, indirectness, imprecision, publication bias, and applicable upgrading domains.
+Do not assign a certainty rating without evidence supporting every domain judgment. Until the dedicated module is operational and assessment is performed, label ratings `PENDING—NOT ASSESSED`.
 
-Provide explicit justifications and a Summary of Findings table. Certainty is outcome-specific, not one grade for the whole review.
+### 20. Interpret findings
 
-Do not allow citation count, journal impact, or statistical significance to determine certainty.
+Distinguish:
 
-### 19. Interpret findings
+- no evidence from evidence of no effect
+- statistical from clinical importance
+- certainty from effect magnitude
+- association from causation
+- direct from indirect evidence
+- absence of studies from absence of a problem
 
-Separate:
+Conclusions must reflect risk of bias, certainty, applicability, harms, and limitations. Avoid clinical recommendations that exceed the evidence.
 
-1. magnitude and direction of effects
-2. uncertainty and certainty of evidence
-3. harms and benefits
-4. applicability, equity, feasibility, and patient relevance
-5. evidence gaps
+### 21. Report using current standards
 
-Avoid “effective” or “safe” when estimates and certainty do not support such language. Absence of evidence is not evidence of absence.
+Use the current PRISMA statement and relevant extensions for the review type. Ensure consistency across abstract, flow diagram, eligibility, search appendix, study characteristics, risk-of-bias figures, syntheses, certainty tables, discussion, registration, funding, data, and code.
 
-### 20. Report using PRISMA
+Provide complete search strategies for every database, not only keywords.
 
-Use the current PRISMA statement and relevant extensions. Include:
+### 22. Update and archive
 
-- checklist
-- flow diagram with reconciled counts
-- complete search strategies
-- protocol/registration and amendments
-- study and report characteristics
-- risk-of-bias results
-- synthesis methods and outputs
-- reporting-bias assessment
-- certainty assessment
-- limitations, funding, conflicts, data/code availability
+Define search rerun dates and update triggers. Archive protocol versions, raw exports, deduplication logs, screening decisions, full-text exclusions, extraction forms, bias judgments, analysis code, outputs, and manuscript versions.
 
-Verify current checklist/extension versions when reporting.
+## Design-specific adaptations
 
-### 21. Archive reproducible materials
+### Intervention reviews
 
-Preserve:
+Define intervention components, dose, comparator, adherence, harms, estimand, and relevant follow-up. Use appropriate trial and nonrandomized bias tools.
 
-- protocol and amendments
-- exact searches and exports
-- deduplication log
-- screening decisions and exclusion reasons
-- study/report linkage
-- extraction forms and queries
-- risk-of-bias support
-- analysis code and outputs
-- GRADE evidence profiles
-- PRISMA materials
-- data dictionary and version history
+### Diagnostic accuracy reviews
 
-Protect copyrighted full text and participant-identifiable information.
+Define index test, target condition, reference standard, threshold, setting, flow/timing, and intended clinical role. Avoid simplistic pooling of sensitivity/specificity without appropriate models.
 
-### 22. Produce deliverables
+### Prognostic and prediction-model reviews
 
-Return:
+Separate prognostic-factor, prognostic-model, and model-impact questions. Extract events, candidate predictors, model development/validation, calibration, discrimination, and applicability.
 
-1. protocol and amendment log
-2. eligibility and outcome framework
-3. search and deduplication record
-4. screening manual and PRISMA counts
-5. study/report linkage
-6. evidence matrix
-7. risk-of-bias tables
-8. synthesis plan and results
-9. reporting-bias assessment
-10. certainty/Summary of Findings table
-11. PRISMA-aligned manuscript sections and checklist
-12. limitations and unresolved issues
+### Prevalence reviews
+
+Define population frame, case definition, sampling, response, period, and transformation/model choices. Assess representativeness and measurement validity.
+
+### Qualitative evidence synthesis
+
+Define phenomenon and context, appraise methodological limitations appropriately, preserve participant voice and author interpretation, and use a justified synthesis method. Do not convert themes into prevalence.
 
 ## Safeguards
 
-- Never fabricate any review count, identifier, extracted value, appraisal judgment, effect, or certainty rating.
-- Never claim registration, duplicate screening, author contact, peer review, or database searching unless documented.
-- Keep protocol decisions, post hoc changes, and exploratory analyses distinct.
-- Preserve excluded full-text reasons and study–report linkage.
-- Do not use AI as the sole final screener, extractor, risk-of-bias assessor, or GRADE decision maker.
-- Do not equate reporting quality with risk of bias.
-- Do not equate statistical significance with clinical importance.
-- Verify live versions of standards, tools, registries, and software before final reporting.
+- Never fabricate registrations, counts, studies, reasons for exclusion, data, bias judgments, pooled estimates, or certainty ratings.
+- Never label a search comprehensive without documented sources and executed strategies.
+- Never treat one reviewer plus unvalidated AI as independent duplicate screening.
+- Never exclude studies based on direction, significance, citation count, journal prestige, or full-text price.
+- Never double count multiple reports or overlapping populations.
+- Never pool solely because studies report the same named outcome.
+- Never use p values or significance vote counting as the synthesis.
+- Never equate reporting quality with risk of bias.
+- Never state “no effect” from nonsignificance alone.
+- Never hide protocol deviations.
+- Protect confidential, copyrighted, and participant-level information.
 
 ## Common failure modes
 
 | Failure | Correction |
 |---|---|
-| Search called systematic without protocol | Prespecify complete methods and audit trail |
-| One database only without rationale | Search appropriate complementary sources |
-| Every PICO element forced into query | Separate eligibility from retrieval concepts |
-| Duplicate records confused with companion reports | Link reports under one study ID |
-| One reviewer makes final decisions invisibly | Use independent review/adjudication per protocol |
-| Exclusion reasons are vague or multiple | Use one primary standardized full-text reason |
-| Generic quality score | Use design-appropriate domain-based RoB tool |
-| One RoB judgment for all outcomes | Assess at appropriate result/outcome level |
-| Pooling based only on available numbers | Assess clinical/methodological compatibility first |
-| I² cutoff dictates pooling | Interpret heterogeneity multidimensionally |
-| Vote counting by significance | Synthesize effect estimates/directions transparently |
-| Funnel symmetry called no publication bias | Consider power and alternative causes |
-| One GRADE rating for entire review | Rate each important outcome |
-| Conclusions ignore low certainty | Align wording with estimate and certainty |
-| Protocol deviations hidden | Maintain dated amendment/deviation log |
+| Question changes after seeing results | Record amendment and timing |
+| One database called comprehensive | Justify sources and add complementary searching |
+| Copying one syntax across databases | Translate and test each platform |
+| Missing exact search strategies | Preserve executed queries and dates |
+| PRISMA counts reconstructed by guess | Use deduplication and screening logs |
+| One row per paper | Link multiple reports to one study |
+| One reviewer silently excludes | Preserve independent decisions and consensus |
+| Generic full-text reason | Use one specific eligibility reason |
+| Quality score replaces bias domains | Use design-appropriate risk-of-bias tools |
+| Pooling incompatible studies | Define synthesis groups and justify pooling |
+| I² alone determines heterogeneity | Assess clinical and methodological differences |
+| Vote counting significance | Synthesize effect direction, magnitude, and uncertainty |
+| GRADE assigned from memory | Document outcome-specific domain judgments |
+| Retraction ignored | Verify publication status and handle transparently |
 
-## Reproducibility record
+## Required project records
 
-Record:
+Maintain:
 
-- protocol/registration and amendments
-- team roles, training, and conflicts
-- eligibility manual
-- all database and supplementary searches
-- raw exports and deduplication
-- screening decisions, conflicts, and exclusions
-- study/report linkage
-- extraction forms, provenance, and queries
-- risk-of-bias tool/version, support, and adjudication
-- synthesis decisions, code, software, and outputs
-- heterogeneity and sensitivity analyses
-- reporting-bias methods
-- certainty judgments and explanations
-- PRISMA checklist/flow
-- data/code availability and version history
+- protocol and amendment log
+- search-source and strategy log
+- raw export manifest
+- deduplication log
+- screening decision log
+- full-text exclusion log
+- study/report linkage table
+- extraction forms and data dictionary
+- risk-of-bias judgments
+- synthesis plan, code, and outputs
+- certainty assessment
+- PRISMA counts and checklist
+- conflicts, funding, and contributor roles
 
 ## Completion criteria
 
 The review is complete only when:
 
-- question, eligibility, outcomes, and methods were prespecified or deviations disclosed
-- searches are reproducible and appropriately broad
-- deduplication, screening, and report linkage are auditable
-- extracted data are source-traceable and checked
-- risk of bias uses current design-appropriate methods
-- synthesis is clinically and methodologically defensible
-- heterogeneity, missing evidence, and sensitivity are addressed
-- certainty is assessed by outcome with explicit reasons
-- conclusions match effect magnitude, uncertainty, and certainty
-- PRISMA items, flow counts, strategies, and supplements reconcile
-- all unresolved issues and limitations remain visible
+- question, design, eligibility, outcomes, and synthesis units are explicit
+- protocol status and amendments are transparent
+- searches are reproducible and execution states are accurate
+- deduplication and screening counts derive from records
+- screening and extraction procedures match the protocol
+- reports are linked to underlying studies
+- risk of bias uses appropriate current tools
+- synthesis groups and pooling decisions are justified
+- quantitative results are actually executed and reproducible, or marked pending
+- certainty ratings are evidence-supported, or marked pending
+- PRISMA reporting is internally consistent
+- conclusions reflect effect, uncertainty, bias, certainty, and applicability
+- all deviations and unresolved limitations remain visible
