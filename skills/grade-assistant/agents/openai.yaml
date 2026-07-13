@@ -1,0 +1,4 @@
+interface:
+  display_name: "GRADE 证据评级助手"
+  short_description: "逐结局审计 GRADE 降级、升级和证据概要表"
+  default_prompt: "请使用 grade-assistant 按结局评估 GRADE 证据确定性，逐域给出可审计理由，并生成证据概要表。"

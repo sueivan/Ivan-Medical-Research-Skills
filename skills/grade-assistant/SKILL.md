@@ -1,24 +1,82 @@
 ---
 name: grade-assistant
-description: Use when rating certainty of evidence or auditing GRADE judgments in a medical evidence synthesis.
+description: Use when assessing, auditing, documenting, or reporting GRADE certainty of evidence for intervention, diagnostic, prognostic, exposure, or qualitative review outcomes; preparing evidence profiles or Summary of Findings tables; or checking downgrading and upgrading decisions.
 ---
 
-# Grade Assistant
+# GRADE Assistant
 
-## Status
+## 核心原则
 
-**Planned for IMRS v1.0.**
+GRADE 对“某一明确比较下的某一结局证据体”评级，不给单篇研究、整篇综述或某项干预一个总分。证据确定性表示对效应估计的信心，不等于推荐强度、统计显著性或临床重要性。
 
-## Scope
+## 启动检查
 
-This scaffold reserves the skill name and trigger conditions. The operational workflow has not yet passed validation and should not be treated as complete.
+先取得或标记缺失项：PICO/PECO 和情境；结局、时间点、效应量与方向；研究设计；Meta 分析/叙述综合结果；绝对与相对效应；参与者和研究数；设计相应风险偏倚评价；异质性、直接性、精确性和缺失结果资料；决策阈值/最小重要差异；使用的 GRADE 路径与指南版本。
 
-## Development requirements
+若是诊断、预后、公共卫生、网络 Meta 分析或定性证据，必须采用对应 GRADE 指南，不把干预效果模板直接套用。
 
-- define required inputs
-- define non-scope
-- add scientific safeguards
-- add reproducibility requirements
-- test pressure scenarios
-- document failure modes
-- add examples and completion criteria
+## 工作流程
+
+### 1. 固定评级单元
+
+每一行只对应一个比较、一个患者重要结局和一个时间点。预先选择关键/重要结局；没有数据也应保留并说明，而不是从证据概要表中消失。
+
+### 2. 明确起点与评级路径
+
+记录研究设计和采用的 GRADE 路径。传统干预效果路径通常将随机试验证据从高确定性开始、非随机证据从低确定性开始；若采用 ROBINS-I 等替代路径，必须按其官方方法处理起点与风险偏倚，不能与传统升级规则混搭。详见 [references/rating-framework.md](references/rating-framework.md)。
+
+### 3. 逐域判断降级
+
+依次评估风险偏倚、不一致性、间接性、不精确性和发表/缺失结果偏倚。每域判断 `不降级`、`严重（-1）` 或 `非常严重（-2）`，极少数情形可分步组合，但必须写清理由。不得用自动分数相加取代判断。
+
+### 4. 考虑升级
+
+仅在所选路径允许且没有更合理偏倚解释时，考虑大效应、剂量反应和残余混杂可能减弱观察效应。升级前核对研究设计、偏倚方向、效应稳定性与直接性，不因 P 值很小或样本量大而升级。
+
+### 5. 形成可审计理由
+
+使用 [assets/grade-decision-log.csv](assets/grade-decision-log.csv)。每个脚注必须指出：问题是什么、影响哪些研究/参与者、影响方向和幅度、为何降一级或两级，以及依据位置。避免“存在异质性”“样本量小”等空泛措辞。
+
+### 6. 制作证据概要
+
+使用 [assets/sof-template.md](assets/sof-template.md) 和 [assets/evidence-profile.csv](assets/evidence-profile.csv)。二分类结局尽可能同时呈现相对效应和基于明确基线风险的绝对效应；连续结局使用可解释单位，并说明 SMD 的临床转换。基线风险来源必须可追溯。
+
+### 7. 一致性复核
+
+检查不同结局间是否使用一致标准，但允许因风险偏倚、事件数、时间点和直接性不同而得到不同等级。由第二位评审者复核脚注、降级幅度、绝对效应和最终等级；分歧留痕。
+
+## 五个降级域
+
+具体规则见 [references/downgrade-domains.md](references/downgrade-domains.md)：
+
+1. 风险偏倚：考虑对该结局汇总结果的实际影响，不做工具票数统计。
+2. 不一致性：检查效应方向/幅度、CI 重叠、异质性指标、亚组解释和预测区间。
+3. 间接性：比较人群、干预/暴露、对照、结局、时间与决策情境。
+4. 不精确性：围绕临床/决策阈值判断 CI 是否包含重要获益、无重要差异或重要伤害。
+5. 发表偏倚：综合注册、方案、未报告结局、小样本效应和研究获取过程。
+
+## 强制边界
+
+- 不给单篇研究或整篇综述一个 GRADE 等级。
+- 不把风险偏倚工具的数字总分直接映射为降级。
+- 不按 `I² > 50%` 自动因不一致性降级。
+- 不因 CI 跨无效线就自动因不精确性降级，也不因未跨无效线就自动不降级。
+- 不把“研究数少”本身作为降级理由；关注信息量、事件数、CI 和决策阈值。
+- 不把漏斗图/Egger 不显著解释为不存在发表偏倚。
+- 不因大样本、极小 P 值或观察性关联强就自动升级。
+- 不把低/极低确定性写成“没有效应”；应表达不确定性。
+- 不把高确定性写成绝对真理，也不从确定性直接推出强推荐。
+- 不虚构基线风险、事件数、效应、阈值、研究、DOI、PMID 或评级共识。
+
+## 输出结构
+
+1. 评级问题与结局
+2. 采用的 GRADE 路径及起点
+3. 五域逐项判断与脚注
+4. 升级判断（如适用）
+5. 相对与绝对效应
+6. 最终确定性及含义
+7. 分歧与敏感性判断
+8. 证据概要表和审计日志
+
+最终等级为：`高`、`中等`、`低`、`极低`；资料不足时标记 `待评级`，不得强行给等级。
