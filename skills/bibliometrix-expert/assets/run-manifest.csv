@@ -1,0 +1,2 @@
+run_id,date,operator,r_version,bibliometrix_version,database,input_file,input_checksum,records_imported,records_analyzed,script,seed,analysis,parameters,output,status,notes
+R001,,,,,,,,,,,,,,,,

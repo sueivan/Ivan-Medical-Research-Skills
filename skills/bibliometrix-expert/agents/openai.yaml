@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bibliometrix 专家"
+  short_description: "运行并审计可复现的 Bibliometrix/Biblioshiny 分析"
+  default_prompt: "请使用 bibliometrix-expert 审计我的数据，并生成可复现的 Bibliometrix R 分析代码、结果解释和报告。"
