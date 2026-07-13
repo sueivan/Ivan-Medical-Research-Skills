@@ -1,42 +1,49 @@
 # Medical Reviewer Quality Checklist
 
-## Triage
-- [ ] Journal/article type and instructions are known
-- [ ] Actual study design is identified
-- [ ] Reviewer expertise limits/conflicts are stated
-- [ ] Supplements, protocol, registration, and SAP availability are checked
-- [ ] Current design-specific guideline/tool is selected
+## Scope and design
+- [ ] Reviewer role and requested scope are explicit
+- [ ] Manuscript version and available materials are recorded
+- [ ] Actual design is identified from methods
+- [ ] Reporting and bias standards are design appropriate
+- [ ] Current-version verification status is stated
 
-## Validity
-- [ ] Research question and primary claim are reconstructed
-- [ ] Population, recruitment, allocation/exposure, comparator, and follow-up are assessed
-- [ ] Outcomes, time points, and analysis populations are assessed
-- [ ] Sample-size rationale and precision are assessed
-- [ ] Statistical model matches design and outcome
-- [ ] Assumptions, missing data, multiplicity, and sensitivity are assessed
-- [ ] Bias domains are assessed separately from reporting completeness
+## Scientific logic
+- [ ] Gap, objective, design, measurements, analysis, results, and conclusion align
+- [ ] Primary question and outcome are identifiable
+- [ ] Population, setting, sampling, and timing are clear
+- [ ] Intervention/exposure and comparator are reproducible
+- [ ] Outcome definitions, instruments, and time points are appropriate
 
-## Consistency and interpretation
-- [ ] Abstract, text, tables, figures, and supplements reconcile
-- [ ] Counts, denominators, percentages, estimates, intervals, and p values are checked
-- [ ] Primary, secondary, subgroup, and exploratory results are distinguished
-- [ ] Spin and causal overreach are identified
-- [ ] Clinical importance is separated from statistical significance
-- [ ] Conclusions match design, magnitude, and uncertainty
+## Validity and statistics
+- [ ] Design-specific bias domains are assessed
+- [ ] Sample-size rationale is assessed
+- [ ] Analysis matches outcome and data structure
+- [ ] Missing data and attrition are addressed
+- [ ] Multiplicity and subgroup analyses are assessed
+- [ ] Estimates and uncertainty accompany significance testing
+- [ ] Model assumptions and sensitivity analyses are assessed
+- [ ] Specialist statistical review is requested when necessary
 
-## Integrity and transparency
-- [ ] Ethics/consent or exemption is reported appropriately
-- [ ] Registration timing and outcome changes are assessed
-- [ ] Funding, conflicts, contributions, and data/code statements are checked
-- [ ] References support claims and adverse publication status is considered
-- [ ] AI/automation disclosure is assessed without style-based accusation
-- [ ] Objective integrity concerns are separated for confidential handling
+## Results and interpretation
+- [ ] Counts, denominators, percentages, tables, and figures agree
+- [ ] Prespecified and reported outcomes are compared when possible
+- [ ] Harms and null/negative findings are not hidden
+- [ ] Association, prediction, diagnosis, and causation are distinguished
+- [ ] Clinical and statistical significance are separated
+- [ ] Nonsignificance is not interpreted as equivalence
+- [ ] Generalization stays within population and setting
+
+## Ethics and transparency
+- [ ] Ethics/consent or waiver is reported as applicable
+- [ ] Registration/protocol consistency is assessed
+- [ ] Funding and conflicts are disclosed
+- [ ] Data/code availability is assessed
+- [ ] Privacy and integrity concerns are handled without unsupported accusations
 
 ## Review quality
-- [ ] Comments are prioritized by consequence
-- [ ] Each major comment states location, problem, importance, and requested action
-- [ ] Feasible alternatives are allowed
-- [ ] Required changes are separated from preferences
-- [ ] Duplicate/contradictory comments are removed
-- [ ] Recommendation, if requested, matches the review findings
-- [ ] Nothing is invented
+- [ ] Each major finding has location, observation, impact, and action
+- [ ] Severity is calibrated
+- [ ] `NOT_REPORTED` is distinguished from confirmed failure
+- [ ] Reference validity and claim support are separated
+- [ ] Recommendation follows prioritized findings
+- [ ] Confidential comments contain no inappropriate author-facing material

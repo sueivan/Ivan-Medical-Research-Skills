@@ -2,23 +2,23 @@
 
 Status: **operational beta (v0.1.0)**
 
-`medical-reviewer` performs rigorous, design-specific biomedical peer review and pre-submission auditing.
+`medical-reviewer` provides design-specific methodological and reporting review for biomedical manuscripts, protocols, theses, reports, and evidence syntheses.
 
 ## Main outputs
 
-- study-design and guideline identification
-- validity and inference summary
-- prioritized fatal/major/minor comments
-- numerical-consistency audit
-- reporting-guideline gap table
-- ethics, transparency, registration, and AI-disclosure queries
-- confidential editor comments
-- revision-response verification
+- study-design classification
+- applicable reporting-standard map
+- critical, major, moderate, minor, and editorial findings
+- methods and statistics audit
+- abstract–methods–results–conclusion consistency check
+- ethics, transparency, registration, and reproducibility audit
+- author-facing and confidential editor comments
+- calibrated recommendation with uncertainty
 
 ## Invoke
 
 ```text
-Use @medical-reviewer to peer review this manuscript. Identify the actual design, apply the current appropriate reporting and appraisal standards, prioritize methodological validity over language, and write actionable major and minor comments.
+Use @medical-reviewer to conduct a reviewer-grade audit of this manuscript. Identify the actual design, apply appropriate current reporting standards, prioritize major and minor findings, and do not infer that unreported procedures were not performed.
 ```
 
-Use `reference-verifier` when citation identity or claim support is uncertain.
+Use `reference-verifier` when bibliographic identity or claim support requires live checking.
