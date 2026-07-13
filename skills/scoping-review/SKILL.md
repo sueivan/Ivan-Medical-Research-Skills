@@ -1,360 +1,336 @@
 ---
 name: scoping-review
-description: Use when planning, conducting, auditing, updating, or reporting a health or biomedical scoping review, including PCC question formulation, protocol development, comprehensive searching, study selection, data charting, evidence mapping, consultation, and PRISMA-ScR reporting.
+description: Use when planning, conducting, auditing, updating, or reporting a biomedical scoping review that maps concepts, evidence types, methods, populations, contexts, implementation, definitions, or research gaps using protocol-driven searching, screening, data charting, synthesis, and PRISMA-ScR reporting.
 ---
 
 # Scoping Review
 
 ## Overview
 
-Conduct a transparent, reproducible scoping review to map the extent, range, characteristics, concepts, definitions, methods, and gaps in an evidence field. Use PCC to align the question, eligibility, search, charting, and synthesis. A scoping review maps evidence; it does not automatically establish effectiveness, causality, or certainty.
+Manage a transparent, reproducible scoping review that maps the breadth, characteristics, concepts, definitions, methods, and gaps of a body of evidence. Use a protocol, broad but bounded eligibility, comprehensive searching, independent selection, iterative data charting, and structured descriptive or qualitative synthesis.
+
+A scoping review is not a lower-quality systematic review. It answers a different type of question. Meta-analysis, effect estimation, and certainty grading are usually not its primary purpose.
+
+## Operational dependencies
+
+Use completed IMRS skills where applicable:
+
+| Task | Skill |
+|---|---|
+| Concept and MeSH mapping | `mesh-expert` |
+| PubMed strategy | `pubmed-search-builder` |
+| WoS strategy/corpus | `wos-search-builder` |
+| Citation and publication-status verification | `reference-verifier` |
+| Data-charting architecture | `evidence-matrix` |
+| Methodological audit | `medical-reviewer` |
+| Multi-skill routing | `imrs-master` |
 
 ## When to use
 
-Use this skill to:
+Use this skill when the objective is to:
 
-- clarify key concepts, definitions, or boundaries
-- map evidence types, populations, interventions/exposures, outcomes, settings, methods, or implementation features
-- identify research gaps and inform a future systematic review
-- examine how research is conducted in a broad or emerging field
-- develop or audit a scoping-review protocol
-- coordinate searching, screening, charting, stakeholder consultation, and evidence mapping
-- prepare JBI-aligned methods and PRISMA-ScR reporting
-- update an existing scoping review
+- clarify key concepts, definitions, or terminology
+- map evidence types, designs, populations, settings, interventions, outcomes, or methods
+- examine how research is conducted in an emerging or heterogeneous field
+- identify evidence gaps and future research needs
+- summarize implementation, policy, educational, service, or interdisciplinary evidence
+- assess whether a later systematic review is feasible
+- audit or update an existing scoping review
 
 ## When not to use
 
 Do not use this skill when the primary objective is to:
 
-- estimate a pooled treatment effect or diagnostic accuracy
-- determine comparative effectiveness, safety, causality, or certainty
-- produce clinical recommendations from heterogeneous mapped evidence
-- avoid critical appraisal solely because the review question actually requires effectiveness assessment
-- call a narrative summary a scoping review without a protocol, reproducible search, selection process, and charting framework
-- fabricate registration, searches, counts, screening, charted data, consultation, or appraisal
-
-If the question is narrow, intervention-focused, and decision-oriented, consider `systematic-review` instead.
+- estimate a pooled treatment effect
+- determine comparative effectiveness or harms
+- make a clinical recommendation based on certainty of effects
+- answer a narrowly focused causal question better suited to systematic review
+- perform bibliometric network analysis without evidence screening and charting
+- call an unsystematic narrative overview a scoping review
+- fabricate protocol registration, search dates, counts, inclusion decisions, charted data, or research gaps
 
 ## Required inputs
 
-Obtain or declare unresolved:
+Obtain or mark unresolved:
 
-1. review rationale and intended users
-2. PCC: Population, Concept, and Context
-3. objectives and review questions
-4. eligible evidence types and information sources
-5. date, language, geographic, publication-status, and report-type limits
-6. protocol/registration status
-7. databases, platforms, grey-literature and supplementary sources
-8. screening and conflict-resolution workflow
-9. charting fields and planned evidence maps
-10. whether critical appraisal is needed and why
-11. whether stakeholder consultation is planned and its role
-12. reporting guideline and relevant extensions
+1. rationale and intended use of the map
+2. Population/Participants, Concept, and Context (PCC)
+3. review questions and subquestions
+4. eligible evidence sources and publication forms
+5. date, language, geographic, or setting boundaries and their rationale
+6. information sources and grey-literature needs
+7. protocol/registration status
+8. reviewer team and independent selection process
+9. charting fields and planned synthesis/display
+10. whether stakeholder consultation is planned
+11. software, reporting guideline, and update plan
 
-Do not force intervention-review PICO terminology when PCC better represents the objective.
+The concept must be broad enough to map but bounded enough to screen consistently.
 
 ## Review states
 
-Use:
+Preserve:
 
-- `CONCEPT`
-- `PROTOCOL_DRAFT`
-- `REGISTERED/PROTOCOL_FINAL`
+- `PLANNED`
+- `REGISTERED_OR_POSTED`
 - `SEARCHED`
-- `SCREENING`
+- `DEDUPLICATED`
+- `SCREENED_TITLE_ABSTRACT`
+- `SCREENED_FULL_TEXT`
+- `INCLUDED`
 - `CHARTED`
 - `MAPPED`
 - `CONSULTED`
-- `FINAL_REPORTED`
-- `UPDATE_PENDING`
+- `REPORTED`
+- `UPDATED`
+- `PENDING`
+- `DEVIATION_RECORDED`
 
-Do not describe planned screening or consultation as completed.
+Never promote a state without evidence.
 
 ## Workflow
 
-### 1. Confirm that a scoping review is appropriate
+### 1. Confirm that a scoping review fits the objective
 
-Use a scoping review when the purpose is to map a broad, complex, heterogeneous, or emerging evidence base; clarify concepts; examine methods; identify gaps; or assess whether a later systematic review is feasible.
+Use a scoping review when breadth, concepts, evidence characteristics, definitions, methods, or gaps are primary. If the user wants a precise estimate of effect, diagnostic accuracy, prognosis, or prevalence, consider a systematic review instead.
 
-Check existing reviews to establish added value. Consider systematic review, evidence map, realist review, qualitative synthesis, umbrella review, or narrative review if those methods better match the question.
+Do not choose a scoping review merely to avoid critical appraisal or because the literature is large.
 
-### 2. Establish governance and stakeholder purpose
-
-Define team roles for domain expertise, information retrieval, screening, charting, synthesis, adjudication, and stakeholder engagement. Declare funding and conflicts.
-
-Identify how the map will be used. “Identify gaps” is insufficient unless gap criteria and users are defined.
-
-### 3. Formulate PCC and questions
+### 2. Formulate PCC and questions
 
 Define:
 
-- **Population:** participants, conditions, users, organizations, or other units
-- **Concept:** phenomenon, intervention, exposure, model, policy, definition, method, or issue being mapped
-- **Context:** care setting, geography, culture, system level, discipline, or environment
+- **Population/Participants:** people, organizations, systems, documents, or other units
+- **Concept:** phenomenon, intervention, approach, definition, mechanism, model, policy, or method being mapped
+- **Context:** care setting, geography, discipline, culture, policy environment, education level, or other boundary
 
-Develop one primary question and focused subquestions. Every charting field should answer a question; every question should have a planned output.
+Write one primary question and focused subquestions aligned with planned charting fields. Outcomes may be charted but need not define eligibility unless central to the concept.
 
-### 4. Define eligibility operationally
+### 3. Define eligibility criteria
 
-Specify:
+Operationalize:
 
 - PCC boundaries
-- evidence types, such as primary studies, reviews, guidelines, policy documents, reports, theses, conference materials, or other grey literature
-- study designs and publication types
-- years, languages, countries/regions, and settings
-- full-text availability policy and retrieval attempts
+- evidence types, including primary studies, reviews, guidelines, policy documents, theses, conference materials, reports, or grey literature as justified
+- study designs and methods
+- language, dates, geography, and context
+- publication status and accessibility
+- handling of protocols, abstracts, preprints, corrections, retractions, and duplicate reports
 
-Do not mix empirical studies, protocols, reviews, commentaries, and policies without tagging evidence type and assigning a clear analytical role.
+Do not say “all evidence” if sources or publication forms are restricted.
 
-### 5. Develop and register a protocol
+### 4. Develop and post/register a protocol
 
-Use current JBI scoping-review guidance and an appropriate protocol/reporting framework. Register or openly post the protocol, for example in OSF or another appropriate repository, when feasible. Verify current platform and guidance requirements.
+Specify objectives, PCC, eligibility, information sources, draft searches, selection, charting, synthesis, consultation, reporting, and amendments.
 
-Prespecify:
+Use an appropriate public repository or registry when available and eligible. Report the actual status accurately: drafted, posted, registered, amended, or not registered. Do not invent a registration number.
 
-- rationale, PCC, objectives, and eligibility
-- information sources and search strategy
-- deduplication and screening
-- study/report linkage
-- charting fields and piloting
-- critical appraisal decision
-- synthesis, visualization, and gap identification
-- consultation methods, if planned
-- deviations and amendments
+### 5. Build the search iteratively but transparently
 
-Maintain a dated amendment log.
+Use a staged approach:
 
-### 6. Design a comprehensive search
+1. preliminary search to identify terminology and index terms
+2. analysis of titles, abstracts, and indexing of seed records
+3. full database-specific strategies
+4. reference-list and cited-reference searching
+5. grey-literature and targeted website searching when relevant
+6. updates before publication when required
 
-Search breadth should reflect the map's purpose. Coordinate:
+Route controlled vocabulary to `mesh-expert`, PubMed syntax to `pubmed-search-builder`, and WoS syntax to `wos-search-builder`.
 
-- `mesh-expert`
-- `pubmed-search-builder`
-- `wos-search-builder`
+Scoping searches are often sensitive, but uncontrolled breadth produces an incoherent map. Justify the boundary rather than maximizing terms mechanically.
 
-Include appropriate disciplinary databases, grey-literature sources, organizational websites, registries, citation chasing, and hand searching. Engage an information specialist when feasible.
+### 6. Execute and document every source
 
-Use search concepts derived from PCC, but do not automatically include all Context terms if they would severely reduce sensitivity. Document pilot searches and final exact strategies.
+Record database/platform, collection/index, coverage, exact query, filters, search date, observed result count, export fields, format, batches, filenames, and update date.
 
-### 7. Manage records and deduplicate
+For websites and grey literature, record URLs, search strings, navigation path, date, screening depth, and stopping rule. Label unexecuted strategies `DRAFT—NOT RUN`.
 
-Preserve raw exports and record database/source counts. Document deduplication software/version, rules, and manual decisions. Distinguish duplicate records, companion reports, preprint/publication pairs, and updated documents.
+### 7. Deduplicate while preserving source provenance
 
-### 8. Develop and pilot screening guidance
+Archive raw exports. Deduplicate by identifiers and bibliographic identity, then manually review ambiguous pairs. Retain source membership for coverage analysis.
 
-Create operational inclusion and exclusion rules with examples. Pilot title/abstract and full-text screening on diverse records, revise the manual, and update earlier decisions when definitions change.
+Distinguish duplicate database records from multiple reports, versions, or document types relating to one project or evidence source.
 
-Use independent reviewers and adjudication as prespecified by the protocol/current methodological guidance. Record reviewer decisions, conflicts, final decisions, and one primary full-text exclusion reason.
+### 8. Pilot screening criteria
 
-AI-assisted prioritization or classification must be disclosed and human-verified; it cannot be reported as independent human screening.
+Create a decision manual and pilot a diverse record set with all reviewers. Refine ambiguous PCC definitions and evidence-source rules before full screening. Record amendments and rescreen earlier records when necessary.
 
-### 9. Link evidence sources
+### 9. Screen titles/abstracts and full texts
 
-Assign stable `source_id`, `study_id`, and `report_id` where applicable. Link multiple reports from the same project, program, trial, dataset, policy, or guideline. Avoid counting reports as independent evidence units.
+Use independent reviewers according to the protocol. Preserve individual decisions, consensus, and adjudication. Document retrieval attempts.
 
-### 10. Design and pilot the charting form
+Use specific full-text exclusion reasons derived from PCC and evidence-source criteria. Do not exclude merely because a study lacks an effect estimate.
 
-Use `reference-verifier` to confirm identity and `evidence-matrix` principles for traceability. Charting is often iterative, but changes must be logged.
+Automation may assist prioritization only when its role and validation are transparent; opaque automated final exclusions are not acceptable.
 
-Possible fields include:
+### 10. Verify and link sources
 
-- bibliographic and evidence type
-- aims and design
-- population and sample
-- concept definition/theoretical framework
-- context and setting
-- intervention/exposure/model characteristics
-- methods, instruments, and data sources
-- outcomes or themes examined
-- implementation, feasibility, acceptability, equity, and stakeholder involvement
-- key findings relevant to the mapping question
-- author-identified and reviewer-identified gaps
-- funding and conflicts
+Use `reference-verifier` to resolve PMID/DOI, metadata, corrections, retractions, and duplicates. Link multiple publications, reports, protocols, or versions to the same underlying project when relevant.
 
-Separate author-reported content, reviewer coding, and inferred categories.
+Decide whether the unit of mapping is a report, study, intervention, program, policy, concept, or other entity. Do not switch units silently.
 
-### 11. Decide on critical appraisal
+### 11. Design and pilot the charting form
 
-Critical appraisal is not universally mandatory in scoping reviews. Decide based on purpose:
+Use `evidence-matrix` principles but tailor fields to the mapping questions. Possible fields include:
 
-- omit when the objective is purely descriptive mapping and explain why
-- include when interpretation depends on trustworthiness, feasibility of a later review, policy relevance, or gap prioritization
+- citation, country, year, discipline, setting
+- evidence type and design
+- population/participants
+- concept definition and theoretical framework
+- intervention/exposure/program components
+- context and implementation features
+- methods, instruments, outcomes, or data sources
+- stakeholder involvement
+- equity variables
+- key findings relevant to mapping
+- reported gaps and author recommendations
 
-If included, use design-appropriate tools and explain how results influence synthesis. Do not exclude evidence based on quality unless prespecified and justified.
+Pilot on diverse sources. Data charting may be iterative, but changes must be documented and earlier records updated consistently.
 
-### 12. Chart data transparently
+### 12. Decide whether critical appraisal is needed
 
-Use explicit provenance labels:
+Critical appraisal is optional, not prohibited. Decide based on the review objective:
 
-- `REPORTED`
-- `CODED_BY_REVIEWER`
-- `INFERRED`
-- `NOT_REPORTED`
-- `UNCLEAR`
-- `ABSTRACT_ONLY`
+- omit when the goal is descriptive mapping and quality does not affect interpretation
+- include when the map compares methodological quality, informs practice/policy, or needs quality-stratified interpretation
 
-Preserve source locations and reviewer/checker identities when feasible. Do not infer missing characteristics or treat missing as absence.
+If included, use design-appropriate tools and explain how judgments affect synthesis. Do not use one generic score across heterogeneous evidence.
 
-### 13. Map the evidence
+### 13. Chart data with provenance
 
-Select outputs that answer the questions:
+Use explicit states such as `REPORTED`, `CALCULATED`, `INFERRED`, `NOT_REPORTED`, `UNCLEAR`, and `ABSTRACT_ONLY`. Preserve source locations when feasible.
 
-- counts by year, country, evidence type, design, population, concept, and context
-- cross-tabulations of population × concept × context
-- intervention/model taxonomy
-- outcome or measurement maps
-- geographic or care-setting maps
-- research-method maps
-- implementation/equity maps
-- evidence-gap matrices
+Keep author-stated gaps separate from reviewer-identified gaps. Do not transform qualitative findings into prevalence estimates.
 
-Denominators must be explicit. Avoid percentages when categories overlap unless clearly stated.
+### 14. Map and synthesize evidence
 
-### 14. Conduct qualitative descriptive synthesis
+Use methods matched to the questions:
 
-Summarize definitions, conceptual frameworks, methodological patterns, and findings relevant to the map. Do not transform heterogeneous evidence into an effectiveness conclusion.
+- frequencies and distributions
+- evidence maps and cross-tabulations
+- timelines and geographic maps
+- taxonomies and conceptual models
+- qualitative content or thematic analysis
+- framework synthesis
+- matrices of population × concept × context
+- gap maps
 
-If thematic analysis is conducted, report coding procedures, reviewer involvement, iterative changes, and whether themes are descriptive or interpretive.
+Report denominators for percentages and define categories. Avoid significance testing on descriptive map counts unless analytically justified.
 
-### 15. Identify gaps responsibly
+Do not treat the number of publications as evidence of effectiveness, importance, or quality.
 
-Classify gaps, for example:
+### 15. Identify evidence gaps carefully
 
-- no evidence located
-- few studies
-- narrow populations or contexts
-- inconsistent definitions or measures
-- absence of longitudinal/comparative/implementation research
-- limited reporting
-- evidence exists but trustworthiness is uncertain
+Classify gaps rather than simply declaring “more research is needed”:
 
-A low publication count does not automatically mean a research priority. Consider importance, feasibility, equity, burden, existing ongoing work, and stakeholder priorities.
+- absolute gap: little or no eligible evidence
+- population gap
+- context/geographic gap
+- concept/definition gap
+- design/method gap
+- outcome/measurement gap
+- implementation gap
+- reporting gap
+- synthesis gap
 
-Do not recommend more research generically; specify what evidence is missing and why it matters.
+Distinguish lack of evidence from evidence of no effect. A database or language restriction can create an apparent gap; report this possibility.
 
-### 16. Conduct stakeholder consultation when planned
+### 16. Conduct stakeholder consultation when useful
 
-Clarify whether consultation is intended to refine questions, identify sources, interpret findings, validate maps, or prioritize gaps. Document participant selection, consent/ethics considerations, methods, analysis, and influence on decisions.
+Consultation may refine interpretations, identify missing sources, validate a taxonomy, or assess relevance. Prespecify purpose, participants, recruitment, data collection, analysis, ethics/consent needs, and how input changes the review.
 
-Do not claim consultation if only informal comments were received. Do not mix stakeholder views with published evidence without labeling the source.
+Consultation is not a substitute for searching or screening. Distinguish consultation data from included literature.
 
-### 17. Report with PRISMA-ScR
+### 17. Report with current scoping-review standards
 
-Use the current PRISMA extension for scoping reviews and relevant JBI guidance. Include:
+Use current PRISMA-ScR and relevant methodological guidance. Ensure consistency across abstract, PCC, protocol, information sources, complete searches, flow diagram, charting methods, evidence characteristics, maps, gaps, limitations, funding, conflicts, consultation, data, and code.
 
-- protocol/registration and amendments
-- PCC and eligibility
-- complete search strategies
-- selection process and flow diagram
-- evidence-source characteristics
-- charting process and fields
-- critical appraisal decision/results when applicable
-- mapped results and synthesis
-- limitations, funding, conflicts, and data availability
+Report why scoping review was selected and whether critical appraisal was performed.
 
-Ensure all counts reconcile.
+### 18. Archive and update
 
-### 18. Interpret within scope
+Archive protocol versions, amendment log, raw exports, deduplication log, screening decisions, exclusion reasons, linkage, charting forms, data dictionary, analysis code, figures, consultation records, and final reports.
 
-State what the review can support:
+Define update triggers for rapidly evolving fields.
 
-- distribution and characteristics of evidence
-- concepts and definitions used
-- methods and measurement patterns
-- evidence concentrations and gaps
+## Difference from systematic review
 
-State what it usually cannot support without additional methods:
+| Dimension | Scoping review | Effect-focused systematic review |
+|---|---|---|
+| Primary aim | Map concepts, evidence, methods, and gaps | Estimate or critically synthesize effects/associations |
+| Framework | Usually PCC | Often PICOS/PECO or design specific |
+| Evidence types | May be broad and heterogeneous | Usually restricted to answerable designs |
+| Critical appraisal | Optional, question dependent | Normally required |
+| Meta-analysis | Usually not the main aim | May be used when justified |
+| Certainty grading | Usually not required | Often required for key outcomes |
+| Output | Map, taxonomy, characteristics, gaps | Effect synthesis and certainty |
 
-- pooled effectiveness
-- comparative safety
-- causal effects
-- certainty-based recommendations
-
-### 19. Archive reproducible materials
-
-Preserve protocol, amendments, exact searches, raw exports, deduplication, screening decisions, exclusion reasons, source linkage, charting forms, coding dictionaries, appraisal records, analysis scripts, maps, PRISMA materials, and version history.
-
-Protect copyrighted full texts and sensitive consultation data.
-
-### 20. Produce deliverables
-
-Return:
-
-1. PCC protocol and amendment log
-2. eligibility and screening manual
-3. search and deduplication records
-4. PRISMA-ScR flow counts
-5. evidence-source linkage
-6. charting form and data dictionary
-7. evidence map and cross-tabulations
-8. appraisal output, if justified
-9. gap taxonomy and prioritization caveats
-10. consultation record, if conducted
-11. PRISMA-ScR manuscript/checklist
-12. limitations and unresolved issues
+These differences are tendencies, not excuses for weak methods.
 
 ## Safeguards
 
-- Never fabricate searches, counts, screening, charted values, appraisal, consultation, or gaps.
-- Never present mapped evidence as proof of effectiveness or causality.
-- Do not claim comprehensive global coverage without appropriate multilingual and grey-literature searching.
-- Keep evidence types and units explicitly stratified.
-- Preserve author statements, reviewer coding, and inference separately.
-- Do not use AI as the sole final screener or unverified data charter.
-- Report protocol deviations and iterative charting changes.
-- Verify current JBI and PRISMA-ScR guidance before final reporting.
+- Never fabricate protocols, searches, counts, decisions, charted data, categories, consultation, or gaps.
+- Never label a selective narrative review as a scoping review.
+- Never claim comprehensive coverage without documented sources and strategies.
+- Never use one database automatically for a multidisciplinary concept.
+- Never treat multiple reports as independent evidence units without justification.
+- Never infer effectiveness, causality, or evidence quality from publication counts.
+- Never force meta-analysis or GRADE into a mapping objective.
+- Never omit critical appraisal merely to avoid unfavorable findings when quality is central to the question.
+- Never present author recommendations as established research gaps without independent synthesis.
+- Preserve protocol deviations and limitations.
 
 ## Common failure modes
 
 | Failure | Correction |
 |---|---|
-| Broad narrative review labeled scoping | Use protocol, reproducible selection, and charting |
-| PCC is vague | Operationalize Population, Concept, and Context |
-| Every PCC element forced into search | Balance retrieval sensitivity and eligibility screening |
-| Evidence types mixed together | Tag and stratify source types/roles |
-| Duplicate reports counted as studies | Link sources under study/project IDs |
-| Charting form never piloted | Pilot, revise, and back-update |
-| Blank cells | Use explicit missingness/provenance states |
-| Critical appraisal omitted without rationale | Explain purpose-based decision |
-| Appraisal used as a generic score | Use design-appropriate tools/domains |
-| Publication counts called research priority | Add importance, equity, feasibility, and stakeholder context |
-| Percentages use unclear denominators | State denominator and overlapping categories |
-| Consultation claimed from informal feedback | Report actual method and role honestly |
-| Effectiveness conclusions from mapped studies | Restrict claims to evidence distribution/characteristics |
-| Search called comprehensive with narrow sources | Disclose database, language, and grey-literature limits |
+| Vague “map the literature” objective | Define PCC and specific subquestions |
+| Scope too broad to screen consistently | Set defensible concept/context boundaries |
+| One database called comprehensive | Match sources to disciplines and grey literature |
+| Search iteration hidden | Record versions, dates, and reasons |
+| No pilot screening | Calibrate criteria and rescreen after changes |
+| One row per paper by default | Define the mapping unit and link versions/reports |
+| Charting form grows without control | Maintain data dictionary and amendment log |
+| Publication count treated as importance | Interpret only as research activity |
+| Author-stated gap copied as review gap | Separate author and reviewer gap evidence |
+| No appraisal without rationale | Explain objective-based decision |
+| Forced meta-analysis | Use descriptive, framework, or thematic mapping |
+| Generic “more research” conclusion | Classify precise gap type and context |
 
-## Reproducibility record
+## Required project records
 
-Record:
+Maintain:
 
-- protocol/registration and amendments
-- PCC, questions, and eligibility manual
-- team roles, conflicts, and stakeholder purpose
-- all searches, raw exports, and deduplication
-- screening pilots, decisions, conflicts, and exclusions
-- study/project/report linkage
-- charting form versions and provenance rules
-- coding framework and data dictionary
-- appraisal decision, tool, and influence
-- synthesis and visualization methods
-- gap definitions and prioritization criteria
-- consultation methods and influence
-- PRISMA-ScR checklist/flow
-- data/code availability and version history
+- protocol and amendment log
+- PCC and eligibility manual
+- source/search log
+- website/grey-literature search log
+- raw export and deduplication manifest
+- independent screening log
+- full-text exclusion log
+- evidence-source linkage table
+- charting form and data dictionary
+- appraisal records if used
+- analysis/category codebook
+- consultation record if used
+- PRISMA-ScR counts/checklist
+- data/code and update plan
 
 ## Completion criteria
 
 The review is complete only when:
 
-- the rationale and PCC questions are explicit
-- eligibility, searches, and selection are reproducible
-- source types and units are correctly classified and linked
-- charting fields were piloted and remain traceable
-- mapped outputs directly answer prespecified questions
-- critical appraisal is included or omitted with a defensible rationale
-- gaps are defined and not equated automatically with priorities
-- consultation is reported only if actually conducted
-- conclusions remain within mapping objectives
-- PRISMA-ScR items, strategies, counts, and supplements reconcile
-- deviations, limitations, and unresolved issues remain visible
+- scoping-review rationale, PCC, and mapping questions are explicit
+- evidence types and boundaries are operational
+- protocol status and amendments are transparent
+- searches are reproducible and source appropriate
+- screening counts derive from records
+- mapping unit and report/project linkage are explicit
+- charting fields align with questions and retain provenance
+- critical-appraisal inclusion or omission is justified
+- maps, categories, denominators, and synthesis methods are reproducible
+- evidence gaps are classified and bounded by search limitations
+- consultation, if used, is methodologically transparent
+- PRISMA-ScR reporting is internally consistent
+- conclusions do not imply effectiveness or certainty beyond the mapped evidence

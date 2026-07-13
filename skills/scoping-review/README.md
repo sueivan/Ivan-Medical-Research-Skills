@@ -1,26 +1,24 @@
 # Scoping Review
 
-Status: **operational beta (v0.1.0)**
+Status: **operational workflow beta (v0.1.0)**
 
-`scoping-review` coordinates a reproducible health or biomedical scoping review from PCC protocol through PRISMA-ScR reporting.
+`scoping-review` manages PCC formulation, protocol, broad evidence searching, deduplication, independent screening, data charting, evidence mapping, gap classification, consultation, and PRISMA-ScR reporting.
 
-## Main outputs
+## IMRS integration
 
-- PCC protocol and amendment log
-- eligibility and screening manual
-- reproducible searches and deduplication records
-- source/study/project linkage
-- charting form and data dictionary
-- descriptive evidence maps and cross-tabulations
-- optional critical appraisal with rationale
-- evidence-gap taxonomy
-- stakeholder-consultation record when conducted
-- PRISMA-ScR manuscript, flow diagram, and checklist
+```text
+mesh-expert
+→ pubmed-search-builder / wos-search-builder
+→ reference-verifier
+→ evidence-matrix-based charting
+→ scoping-review mapping and reporting
+→ medical-reviewer
+```
 
 ## Invoke
 
 ```text
-Use @scoping-review to design and audit a scoping review of [topic]. Define PCC, evidence types, searches, screening, charting, maps, gap criteria, optional appraisal, consultation, and PRISMA-ScR reporting.
+Use @scoping-review to map [concept] among [population] in [context]. Define PCC, evidence-source boundaries, protocol, searches, dual screening, charting, mapping outputs, gap taxonomy, and PRISMA-ScR records.
 ```
 
-This skill coordinates `mesh-expert`, database search skills, `reference-verifier`, and `evidence-matrix`.
+Do not add meta-analysis or GRADE unless a separate, justified question requires them.

@@ -1,77 +1,96 @@
-# Scoping Review Protocol Record
+# Scoping Review Protocol
 
 ## Administrative information
 
 - Title:
-- Review team and roles:
+- Team and roles:
 - Funding/conflicts:
-- Methodological guidance:
-- Registration/repository/status:
+- Protocol status/location/ID:
 - Version/date:
 
 ## Rationale and objectives
 
-- Existing reviews and added value:
-- Intended users/decisions:
-- Primary objective:
+- Why a scoping review:
+- Intended use:
 - Primary question:
-- Secondary questions:
+- Subquestions:
 
-## PCC and eligibility
+## PCC
 
-| Element | Operational definition | Inclusion | Exclusion | Rationale |
+| Element | Definition | Include | Exclude | Rationale |
 |---|---|---|---|---|
-| Population | | | | |
+| Population/Participants | | | | |
 | Concept | | | | |
 | Context | | | | |
 
-| Other criterion | Rule | Rationale |
+## Evidence-source eligibility
+
+| Source/design type | Include/exclude | Rationale |
 |---|---|---|
-| Evidence/source types | | |
-| Study designs | | |
-| Dates | | |
-| Languages | | |
-| Geography | | |
-| Publication status | | |
+| Primary studies | | |
+| Reviews | | |
+| Guidelines/policies | | |
+| Reports/grey literature | | |
+| Theses/conference materials | | |
+| Protocols/preprints | | |
 
-## Information sources and search
+## Information sources and searches
 
-- Databases/platforms/coverage:
-- Grey-literature and organizational sources:
-- Supplementary search methods:
-- Search peer review/piloting:
-- Full strategies location:
-- Update search plan:
+- Databases/platforms:
+- Grey-literature sources:
+- Websites and stopping rules:
+- Citation searching:
+- Coverage and update plan:
+- Search peer review:
 
-## Selection
+## Record management and selection
 
+- Software:
 - Deduplication:
-- Screening pilot/manual:
-- Reviewer/adjudication process:
-- Full-text exclusion hierarchy:
-- AI/automation and human verification:
-- Source/study/project linkage:
+- Pilot:
+- Independent reviewers:
+- Consensus/adjudication:
+- Automation/AI role:
 
 ## Data charting
 
-- Fields/data dictionary:
-- Pilot and revisions:
-- Reviewer/checking process:
-- Provenance labels:
-- Missing-data handling:
+- Unit of mapping:
+- Form and pilot:
+- Charting fields:
+- Extractor/checker:
+- Iterative-update process:
+- Missingness/provenance states:
 
-## Appraisal, synthesis, gaps, and consultation
+## Critical appraisal
 
-- Critical appraisal decision/rationale:
-- Descriptive synthesis:
-- Tables/maps/cross-tabulations:
-- Gap definitions:
-- Prioritization criteria:
-- Consultation purpose/methods:
+- Included or omitted:
+- Objective-based rationale:
+- Tools and use in synthesis:
 
-## Reporting and materials
+## Synthesis and presentation
 
-- PRISMA-ScR:
-- Amendments:
-- Data/code/materials:
-- Dissemination:
+- Descriptive summaries:
+- Taxonomy/framework:
+- Qualitative analysis:
+- Evidence/gap maps:
+- Planned tables/figures:
+
+## Consultation
+
+- Purpose:
+- Participants/recruitment:
+- Ethics/consent:
+- Data collection/analysis:
+- Integration with literature:
+
+## Reporting, data, and updates
+
+- Reporting guideline:
+- Data/code availability:
+- Update trigger:
+
+## Amendments
+
+| Date/version | Change | Rationale | Timing | Impact/rescreening |
+|---|---|---|---|---|
+| | | | | |

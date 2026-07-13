@@ -2,7 +2,7 @@
 
 ## 0.1.0 — 2026-07-12
 
-- Replaced the scaffold with an operational PCC-based scoping-review workflow.
-- Added protocol, comprehensive search, screening, source linkage, iterative charting, optional appraisal, evidence mapping, gap classification, consultation, and PRISMA-ScR reporting.
-- Added safeguards against effectiveness overclaim, invented consultation, mixed evidence types, and automatic conversion of low evidence volume into research priority.
-- Added protocol, charting, gap, consultation, amendment, and PRISMA-ScR count templates.
+- Replaced the scaffold with an operational end-to-end scoping-review workflow.
+- Added PCC, protocol, iterative but auditable searching, grey-literature methods, independent screening, evidence-source linkage, charting, optional appraisal, mapping, gap taxonomy, consultation, and PRISMA-ScR reporting.
+- Added safeguards against forced meta-analysis, publication-count overclaiming, fabricated gaps, and hidden scope changes.
+- Added protocol, screening, charting, gap, website-search, and PRISMA-count templates.
