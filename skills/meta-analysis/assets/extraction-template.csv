@@ -1,0 +1,2 @@
+study_id,report_id,design,population,intervention_or_exposure,comparator,outcome,timepoint,effect_measure,effect_direction,estimate,lower_ci,upper_ci,se,yi,vi,n_total,events_t,n_t,events_c,n_c,mean_t,sd_t,mean_c,sd_c,adjusted,adjustment_set,clustered,multiarm,shared_group,rob_domain,source_location,assumption,verification_status,notes
+S001,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

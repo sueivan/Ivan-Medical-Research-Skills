@@ -1,0 +1,4 @@
+interface:
+  display_name: "Meta 分析专家"
+  short_description: "审计效应量、模型、异质性、敏感性和偏倚"
+  default_prompt: "请使用 meta-analysis 判断这些研究能否合并，审计效应量和依赖结构，并生成可复现的主模型、敏感性分析与偏倚评估。"
