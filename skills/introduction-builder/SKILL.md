@@ -1,24 +1,92 @@
 ---
 name: introduction-builder
-description: Use when structuring or revising the introduction of a medical research manuscript.
+description: Use when drafting, restructuring, auditing, or shortening the Introduction and study-rationale sections of medical, clinical, epidemiological, educational, biomarker, bibliometric, or evidence-synthesis manuscripts from a verified evidence gap.
 ---
 
 # Introduction Builder
 
-## Status
+## 核心原则
 
-**Planned for IMRS v1.0.**
+引言应形成可验证的逻辑链：“为什么重要 → 已经知道什么 → 具体不知道什么 → 这个未知为何影响决策或知识 → 本研究将回答什么”。研究缺口不是修辞，而是经过检索、边界定义和证据比较后仍存在的可回答问题。
 
-## Scope
+## 启动检查
 
-This scaffold reserves the skill name and trigger conditions. The operational workflow has not yet passed validation and should not be treated as complete.
+先取得或标记缺失项：目标读者和期刊；研究问题、设计和主要结局；目标人群与情境；核心概念定义；已核验关键文献；最新系统综述/指南；拟主张的缺口；研究目的、假设或目标估计量；字数和引用格式。
 
-## Development requirements
+若没有检索记录或关键综述，不能使用“首次”“尚无研究”“研究很少”等绝对措辞；先标记为待核验。
 
-- define required inputs
-- define non-scope
-- add scientific safeguards
-- add reproducibility requirements
-- test pressure scenarios
-- document failure modes
-- add examples and completion criteria
+## 工作流程
+
+### 1. 固定研究问题
+
+先用一句话写明人群、暴露/干预、比较、结局和时间/情境。引言的每一段都应为理解该问题服务；删除不能改变研究理由的百科式背景。
+
+### 2. 建立论断—来源账本
+
+使用 [assets/claim-source-ledger.csv](assets/claim-source-ledger.csv)。为疾病负担、流行率、机制、指南建议、既有结果和缺口分别记录来源、研究设计、适用人群、年份、稳定标识符和核验状态。数字必须写明时间、地区、分母和口径。
+
+### 3. 定义缺口类型
+
+按 [references/gap-taxonomy.md](references/gap-taxonomy.md) 区分：证据缺失、结果不一致、方法学不足、人群/情境间接、结局或时间不足、机制未知、实施缺口、验证缺口。缺口需说明“现有证据为何不能回答”，而不仅是“相关研究有限”。
+
+### 4. 构建漏斗结构
+
+使用 [assets/introduction-outline.md](assets/introduction-outline.md)：
+
+1. 问题规模及临床/科研重要性；
+2. 与本研究直接相关的已知证据；
+3. 可核验的具体未知及其原因；
+4. 未知对决策、方法或理论的影响；
+5. 本研究目的、设计和预设假设。
+
+段落之间用证据关系过渡，不靠“然而”“因此”制造不存在的逻辑。
+
+### 5. 比较关键证据
+
+对于“不一致”缺口，使用 [assets/evidence-gap-matrix.csv](assets/evidence-gap-matrix.csv) 比较人群、设计、暴露/干预、结局、时间、测量、调整及效应，说明矛盾是真实方向差异、精度不足还是不可比。不得只列作者和年份。
+
+### 6. 对齐缺口与设计
+
+检查本研究能否真正缩小所称缺口：
+
+- 横断面研究不能填补因果或进展缺口；
+- 单中心内部验证不能填补外部可迁移性缺口；
+- 生物标志物关联不能填补临床效用缺口；
+- 文献计量图谱不能填补疗效或证据质量缺口；
+- 叙述综述不能声称完成系统证据综合。
+
+若设计不能回答，缩小缺口或修改研究问题。
+
+### 7. 写目的与假设
+
+目的句写对象、设计/分析目标、主要变量和结局，不提前宣告结果。因果、预测、诊断、预后、描述和探索目的使用相应动词。假设需在看结果前可检验；无合理方向时可写探索性目标，不伪造预设假设。
+
+### 8. 审计与压缩
+
+按 [references/writing-and-claim-rules.md](references/writing-and-claim-rules.md) 检查引用匹配、时间性、因果措辞、概念定义、段落功能、重复和宣传词。使用 [assets/novelty-audit.md](assets/novelty-audit.md) 复核创新主张。
+
+## 强制边界
+
+- 不把“未检索到”写成“尚无研究”。
+- 不以单篇文献或选择性引用证明整个领域缺口。
+- 不用旧综述支持“当前仍存在”而不核对更新证据。
+- 不把“结果不一致”用于实际上人群、设计或结局不可比的研究。
+- 不把换地区、换数据库或增加样本自动称为创新；说明新增可迁移性、精度或决策价值。
+- 不把相关性、生物学合理性或预测能力写成因果机制。
+- 不把发病率、患病率、风险、比例和死亡率混用。
+- 不在引言泄露结果或根据结果反向编写假设。
+- 不虚构指南建议、数字、研究、引用、DOI、PMID 或“首次”主张。
+- 不堆砌背景、定义和引用以掩盖研究理由薄弱。
+
+## 输出结构
+
+1. 一句话研究问题
+2. 缺口类型与核验证据
+3. 段落级引言提纲
+4. 完整引言草稿
+5. 目的与假设
+6. 论断—引用审计表
+7. 创新性和过度主张审计
+8. 待补证据清单
+
+论断状态标记：`已核验`、`部分支持`、`需限定`、`不支持`、`待核验`。

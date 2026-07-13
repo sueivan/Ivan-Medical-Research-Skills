@@ -1,0 +1,4 @@
+interface:
+  display_name: "医学论文引言构建器"
+  short_description: "从可核验研究缺口构建引言、目的和假设"
+  default_prompt: "请使用 introduction-builder 核验并分类研究缺口，构建漏斗式引言，并审计引用、创新性和过度主张。"
