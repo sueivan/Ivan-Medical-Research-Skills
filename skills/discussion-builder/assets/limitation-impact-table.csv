@@ -1,0 +1,2 @@
+limitation_id,limitation,mechanism,bias_type,affected_result,likely_direction,possible_magnitude,mitigation_performed,sensitivity_result,residual_uncertainty,required_claim_change,future_design_solution,priority,notes
+L001,,,,,unclear,,,,,,,high,

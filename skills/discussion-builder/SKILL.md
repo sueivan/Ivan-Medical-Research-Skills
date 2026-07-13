@@ -1,24 +1,91 @@
 ---
 name: discussion-builder
-description: Use when structuring, drafting, revising, or auditing the discussion section of a medical research manuscript.
+description: Use when drafting, restructuring, auditing, or revising the Discussion and Conclusion sections of medical, clinical, epidemiological, educational, biomarker, bibliometric, or evidence-synthesis manuscripts while keeping claims aligned with study design and evidence.
 ---
 
 # Discussion Builder
 
-## Status
+## 核心原则
 
-**Planned for IMRS v1.0.**
+讨论不是结果复述，也不是自由发挥。每个核心判断都应形成“本研究观察 → 与既有证据比较 → 可能解释 → 替代解释 → 实际意义 → 限制后的结论”链条，并清楚区分数据直接支持、合理推断和待验证假设。
 
-## Scope
+## 启动检查
 
-This scaffold reserves the skill name and trigger conditions. The operational workflow has not yet passed validation and should not be treated as complete.
+先取得或标记缺失项：研究问题和设计；主要/次要结局；效应量、置信区间和绝对效应；预设/事后分析；风险偏倚或关键限制；目标人群与情境；用于比较的已核验文献；期刊要求和字数；作者不希望声称的事项。
 
-## Development requirements
+如果只有摘要或结论而没有结果表、方法和研究设计，不写确定性讨论；先建立缺失信息清单。
 
-- define required inputs
-- define non-scope
-- add scientific safeguards
-- add reproducibility requirements
-- test pressure scenarios
-- document failure modes
-- add examples and completion criteria
+## 工作流程
+
+### 1. 建立发现清单
+
+使用 [assets/claim-evidence-ledger.csv](assets/claim-evidence-ledger.csv)，逐项记录主要发现、效应量、精确性、分析状态、证据位置和允许措辞。主要结局优先；探索性、亚组和敏感性结果必须标记，不能抢占主结论。
+
+### 2. 写首段主要发现
+
+用一段回答研究问题：研究对象和设计、最重要发现、效应方向/大小及关键不确定性。不要逐项复制结果，也不要在首段引入结果中未报告的数据。
+
+### 3. 与既有证据比较
+
+使用 [assets/evidence-comparison-matrix.csv](assets/evidence-comparison-matrix.csv)。比较一致、部分一致和不一致证据；同时检查人群、暴露/干预、结局、时间、设计、调整和测量差异。引用必须由 `reference-verifier` 或可核验来源确认；不得凭题名或摘要猜测文献结论。
+
+### 4. 解释结果
+
+解释按优先级展开：数据/方法学解释 → 情境解释 → 已有机制证据 → 新假设。每个机制陈述说明证据层级和临床距离。相关性结果只能支持关联性解释，不能用生物学合理性把关联升级成因果。
+
+### 5. 处理反常与不确定结果
+
+对不显著、方向相反、异质或不稳定结果同时考虑：真实无重要效应、信息不足、测量误差、偏倚、效应修饰和模型依赖。`P > 0.05` 不等于“无差异”；用效应量、CI 和临床阈值描述。
+
+### 6. 写实际意义
+
+区分临床意义、公共卫生意义、方法学意义和研究意义。观察性关联、替代结局、内部验证模型或探索性生物标志物不能直接支持临床实施。提出应用时写明所需外部验证、效用研究、资源和公平性条件。
+
+### 7. 写优势与局限
+
+使用 [assets/limitation-impact-table.csv](assets/limitation-impact-table.csv)。每项局限必须写：机制、可能方向/幅度、受影响结论、已采取缓解措施、仍不能排除什么。避免通用句“样本量小、需进一步研究”；也不把局限写成礼貌性列表后维持过强结论。
+
+### 8. 提出未来研究
+
+未来研究必须直接解决当前不确定性：需要何种设计、目标人群、比较、结局、时间、样本/事件、验证或偏倚控制。避免只写“扩大样本、多中心验证”。
+
+### 9. 收束结论
+
+结论回答研究问题，但不超出设计、数据和不确定性。按 [references/language-calibration.md](references/language-calibration.md) 校准动词和确定性；删除首次出现的新结果、无证据机制和宣传性形容词。
+
+## 设计特异边界
+
+详见 [references/design-specific-claims.md](references/design-specific-claims.md)。最低要求：
+
+- 横断面：支持患病率/分布和同期关联，不建立时间顺序。
+- 队列/病例对照：可有时间信息，但残余混杂和选择/测量偏倚限制因果结论。
+- 随机试验：结论限于目标估计量、实施、依从、失访和研究人群。
+- 诊断：准确性不等于改善患者结局或临床效用。
+- 预测模型：开发/内部验证不等于外部验证或临床可用。
+- 生物标志物：关联、区分、预后、预测、替代终点和临床效用不可互换。
+- Meta 分析：汇总精度不消除研究内偏倚、异质性或报告偏倚。
+- 文献计量：产量、引用、中心性和突现不等于质量、因果或未来趋势。
+
+## 强制边界
+
+- 不把“相关”“预测”“关联”改写为“导致”“作用机制”或“改善”。
+- 不把不显著结果写成等效、无差异或无效，除非设计和区间支持。
+- 不用“首次”“填补空白”“证实”“突破”而无可核验证据。
+- 不以 P 值大小代替效应量、CI、临床意义或证据确定性。
+- 不选择性讨论支持假设的结果而忽略主要阴性/矛盾结果。
+- 不把事后亚组、数据驱动阈值或敏感性分析包装成预设主要发现。
+- 不虚构引用、DOI、PMID、机制、指南建议、样本特征或结果数值。
+- 不把未来研究建议写成当前研究已经可实施的结论。
+
+## 输出结构
+
+1. 主要发现
+2. 与既有证据的比较
+3. 可能解释及替代解释
+4. 临床/科研/方法学意义
+5. 优势与局限及其影响
+6. 针对性未来研究
+7. 克制结论
+8. 论断—证据审计表
+
+论断状态标记：`直接支持`、`间接支持`、`探索性`、`不支持`、`待核验`。

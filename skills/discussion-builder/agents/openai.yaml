@@ -1,0 +1,4 @@
+interface:
+  display_name: "医学论文讨论构建器"
+  short_description: "依据研究设计和证据撰写克制的讨论与结论"
+  default_prompt: "请使用 discussion-builder 根据我的方法、结果和已核验文献撰写讨论，并审计因果措辞、局限和过度解读。"
