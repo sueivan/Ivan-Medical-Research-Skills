@@ -1,0 +1,4 @@
+interface:
+  display_name: "文献计量学审稿专家"
+  short_description: "系统审查检索、清洗、指标、图谱参数和结论"
+  default_prompt: "请使用 bibliometric-reviewer 审查这篇文献计量学论文，按严重程度列出可复现性、方法、图谱解释和结论问题。"

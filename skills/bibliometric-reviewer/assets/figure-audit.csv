@@ -1,0 +1,2 @@
+figure_id,software,version,analysis_type,node,edge,size,color,distance,density_or_overlay,threshold,counting,normalization,layout,clustering,label_method,manual_changes,underlying_table_consistent,readable,interpretation_supported,sensitivity_analysis,status,notes
+F001,,,,,,,,,,,,,,,,,,,,,pending,
