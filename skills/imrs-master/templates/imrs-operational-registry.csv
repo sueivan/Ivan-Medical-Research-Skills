@@ -1,0 +1,7 @@
+skill_name,version,status,primary_responsibility,required_input,output_contract,last_validated,notes
+mesh-expert,0.1.0,operational-beta,MeSH and synonym mapping,Research concept,Verified concept map,,
+pubmed-search-builder,0.1.0,operational-beta,PubMed strategy,Concept map and eligibility,Exact query and validation log,,
+wos-search-builder,0.1.0,operational-beta,WoS corpus strategy,Concept boundary and index scope,Exact search history and export log,,
+reference-verifier,0.1.0,operational-beta,Reference identity verification,Citations or identifiers,Verification states and corrected metadata,,
+evidence-matrix,0.1.0,operational-beta,Evidence extraction,Verified reports/full text,Linked study and outcome tables,,
+medical-bibliometric-research,existing,operational,Bibliometric methodology,Documented corpus,Analysis workflow and reporting,,Confirm current repository version
