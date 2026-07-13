@@ -1,0 +1,4 @@
+interface:
+  display_name: "医学期刊选择助手"
+  short_description: "实时核验期刊匹配、费用、收录与投稿风险"
+  default_prompt: "请使用 journal-selector 根据我的稿件和约束生成候选期刊，实时核验收录、费用与政策，并制定分层投稿策略。"
