@@ -1,0 +1,4 @@
+interface:
+  display_name: "VOSviewer 专家"
+  short_description: "审计并解释网络、叠加和密度可视化"
+  default_prompt: "请使用 vosviewer-expert 审计我的数据清洗、VOSviewer 参数以及网络、叠加和密度图，并输出可复现报告。"

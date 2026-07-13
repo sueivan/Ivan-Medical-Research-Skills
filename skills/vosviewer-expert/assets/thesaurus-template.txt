@@ -1,0 +1,3 @@
+label	replace by
+original term	preferred term
+term to exclude	

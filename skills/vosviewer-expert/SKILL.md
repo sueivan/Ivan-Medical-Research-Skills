@@ -1,373 +1,73 @@
 ---
 name: vosviewer-expert
-description: Use when planning, configuring, executing, auditing, interpreting, or reporting VOSviewer bibliometric and science-mapping analyses, including data import, counting methods, thresholds, normalization, clustering, thesaurus cleaning, overlay visualization, density maps, and reproducibility.
+description: Use when planning, running, auditing, interpreting, or reporting VOSviewer bibliometric maps, including network, overlay, and density visualizations; co-authorship, co-occurrence, citation, bibliographic coupling, and co-citation analyses; or thesaurus-based data cleaning.
 ---
 
 # VOSviewer Expert
 
-## Overview
+## 核心原则
 
-Design and audit reproducible VOSviewer analyses from a documented bibliographic corpus. Choose the appropriate analysis, unit, counting method, thresholds, normalization, clustering, and visualization settings; preserve an auditable thesaurus; and interpret maps without equating bibliometric prominence with scientific quality.
+把 VOSviewer 图谱视为数据、计数方式、阈值、归一化、布局和聚类共同生成的探索性结果。节点距离、颜色、大小和密度只按当前分析与图例解释，不自动代表质量、因果关系或临床重要性。
 
-## When to use
+## 启动检查
 
-Use this skill to:
+先取得或标记缺失项：研究问题、数据库、完整检索式、检索日期、导出格式和记录数；VOSviewer 版本；分析类型、分析单元、计数方法、阈值、归一化、布局和聚类设置；清洗词表；目标视图及导出文件。
 
-- prepare and import supported bibliographic or network data into VOSviewer
-- create co-authorship, co-occurrence, citation, bibliographic-coupling, and co-citation maps
-- choose units such as authors, organizations, countries, documents, sources, cited references, cited authors, or terms
-- compare full and fractional counting
-- set occurrence/citation/document thresholds and item selection
-- apply and audit normalization and clustering
-- build network, overlay, and density visualizations
-- create and validate a VOSviewer thesaurus file
-- export network/map data and write reproducible methods, results, legends, and limitations
+若菜单、功能或默认值依版本而变，要求核对当前软件版本或官方手册，不凭记忆补写参数。
 
-## When not to use
+## 工作流程
 
-Do not use this skill alone to:
+### 1. 匹配研究问题与网络
 
-- construct the search corpus; use `wos-search-builder` or another database-specific skill
-- infer evidence quality, causal importance, clinical efficacy, or certainty from link strength, citations, or cluster position
-- fabricate item counts, link strength, cluster membership, average year, citation impact, or screenshots
-- merge names, institutions, countries, or concepts without an explicit normalization rule
-- choose thresholds only to create a visually pleasing map
-- substitute VOSviewer maps for reading representative source documents
+每次分析明确节点和边。合作、关键词共现、引用、文献耦合与共被引回答不同问题，不得互换。设计分析时读取 [references/analysis-design.md](references/analysis-design.md)。
 
-## Required inputs
+### 2. 审计与清洗数据
 
-Obtain or label unresolved:
+记录数据库覆盖、导出字段、去重、作者/机构消歧、关键词合并和排除规则。使用 thesaurus 文件时保留原词、替换词、排除项及理由；不得为得到理想聚类而删除不利术语。使用 [assets/thesaurus-template.txt](assets/thesaurus-template.txt) 和 [assets/cleaning-log.csv](assets/cleaning-log.csv)。
 
-1. research question and intended claims
-2. database, collection/indexes, exact search, timespan, and search date
-3. record count, export content, format, and batches
-4. VOSviewer version and analysis date
-5. type of analysis and unit of analysis
-6. counting method
-7. minimum threshold and item-selection rule
-8. normalization and clustering settings
-9. term source, minimum term occurrences, and relevance selection for text mining
-10. thesaurus/normalization rules
-11. desired visualization type and overlay variable
-12. sensitivity analyses and output formats
+### 3. 建立参数账本
 
-Options vary by VOSviewer version and input source. Verify current software labels and supported functions before prescribing exact clicks.
+每次运行填写 [assets/run-ledger.md](assets/run-ledger.md)。至少记录软件版本、数据文件、分析类型、分析单元、计数方法、阈值、纳入节点数、归一化、布局、聚类参数和视图设置。
 
-## Analysis states
+### 4. 主分析与敏感性分析
 
-Use:
+参数应由问题、数据规模和可读性共同决定，不得只为“图更漂亮”选择。至少改变一项关键参数，例如全计数/分数计数、最低出现次数、纳入节点数、聚类分辨率或术语表，比较主要结构是否稳定。
 
-- `PLANNED`
-- `IMPORTED`
-- `RUN`
-- `CLEANED`
-- `SENSITIVITY_CHECKED`
-- `INTERPRETED`
-- `FINAL_REPORTED`
+### 5. 区分三类视图
 
-Do not present a planned map as executed.
+按 [references/visualization-interpretation.md](references/visualization-interpretation.md) 逐图解释：
 
-## Workflow
+- 网络视图：关系结构、连接与聚类；
+- 叠加视图：节点附加属性，如平均发表年份或引用影响；
+- 密度视图：给定权重、邻域和配色下的局部集中程度。
 
-### 1. Match the question to the analysis
+解释顺序固定为：图例与参数 → 直接观察 → 允许解释 → 替代解释 → 所需核验。
 
-| Research question | Type of analysis | Typical unit |
-|---|---|---|
-| Who collaborates? | Co-authorship | authors, organizations, countries |
-| Which concepts co-occur? | Co-occurrence | author keywords, all keywords, terms |
-| Which items cite each other? | Citation | documents, sources, authors, organizations, countries |
-| Which items share references? | Bibliographic coupling | documents, sources, authors, organizations, countries |
-| Which references/authors/sources are cited together? | Co-citation | cited references, cited authors, cited sources |
+### 6. 报告与复现
 
-Choose one analysis/unit combination for each map. Do not call all networks “co-occurrence.”
+使用 [assets/report-template.md](assets/report-template.md) 和 [assets/figure-audit.csv](assets/figure-audit.csv)。保存原始数据、清洗词表、参数账本、地图/网络文件、坐标、聚类分配和导出图。人工移动节点、改色或改标签必须留痕。
 
-### 2. Freeze corpus provenance
+## 强制边界
 
-Record database scope, exact executed query, search date, filters, total records, export content, batches, filenames, and checksums when feasible. Preserve raw files unchanged and version any revised corpus.
+- 不把节点接近解释为因果关系或直接合作，除非边定义支持。
+- 不把簇颜色解释为优劣或时间先后；网络视图颜色通常表示聚类。
+- 不把叠加视图的黄色自动称为“热点”；先确认颜色所编码的属性。
+- 不把密度视图高亮区域等同于高质量、高影响或研究空白。
+- 不把总链接强度等同于研究质量、贡献度或临床价值。
+- 不把高被引等同于高质量，也不忽略引文时滞和领域规模。
+- 不虚构记录数、参数、标签、引用、DOI、PMID或软件输出。
+- 不以图谱替代系统综述、风险偏倚评价、Meta分析或因果推断。
 
-### 3. Verify import suitability
+## 输出结构
 
-Confirm that the selected export supports the intended analysis:
+1. 研究问题与数据边界
+2. 数据清洗与消歧日志
+3. 可复现参数表
+4. 主网络结果
+5. 网络/叠加/密度视图逐图解释
+6. 敏感性分析
+7. 代表记录核验
+8. 限制与不可推断事项
+9. 复现文件清单
 
-- cited references are included for citation, coupling, or co-citation analyses
-- author affiliations support organization/country analysis
-- abstracts/keywords support text or term analysis
-- all batches are complete and nonoverlapping
-- file encoding and record totals are intact
-- duplicates and early-access/final versions are addressed
-
-An importable file is not necessarily analytically complete.
-
-### 4. Define the unit of analysis precisely
-
-State whether an item represents an author, organization, country, document, source, cited reference, cited author, cited source, author keyword, all keyword, or text-mined term. Explain what a link and total link strength mean for that network.
-
-### 5. Choose counting method
-
-Compare the implications of:
-
-- **full counting:** each co-authored/co-occurring contribution receives full weight
-- **fractional counting:** contribution weight is divided to reduce dominance by records with many coauthors, organizations, countries, or terms, where supported
-
-Counting choice changes weights and potentially rankings. Justify it based on the question and test alternatives when conclusions are sensitive.
-
-Do not describe fractional counting as universally superior.
-
-### 6. Set thresholds transparently
-
-Record minimum documents, occurrences, citations, or other relevant thresholds, plus the number meeting the threshold and number selected.
-
-Thresholds control visibility and analytical inclusion. They are not mere display settings. Avoid selecting a threshold only to obtain a desired number of bubbles.
-
-For large networks, use a reproducible selection rule and document any manual exclusions.
-
-### 7. Build an auditable thesaurus
-
-Use a VOSviewer-compatible thesaurus to:
-
-- merge spelling, singular/plural, hyphenation, abbreviation, and name variants
-- standardize institution aliases
-- remove terms only when they are genuinely uninformative for the question
-
-Maintain columns such as `label` and `replace by`, preserving the original label, replacement, entity type, rationale, reviewer, and date in a separate audit log.
-
-Do not merge broader/narrower or related-but-distinct concepts merely to simplify the map. Do not make geopolitical normalization decisions by convenience.
-
-### 8. Handle author and organization ambiguity
-
-VOSviewer is not a complete authority-disambiguation system. Check:
-
-- initials and full-name variants
-- homonyms
-- name changes
-- group/consortium authors
-- hospital–university relationships
-- department and parent-institution levels
-- organization mergers and historical names
-
-Label uncertain merges and consider leaving them separate rather than creating a false identity.
-
-### 9. Choose term sources for co-occurrence/text maps
-
-Distinguish:
-
-- author keywords
-- database-added keywords
-- title/abstract terms
-- noun phrases or other software-extracted terms
-
-Keyword and term maps answer different questions. Record source, occurrence threshold, relevance-based selection, and thesaurus version.
-
-Search-imposed terms may dominate a map mechanically; consider whether they should remain for transparency or be omitted from a secondary exploratory map. Report the decision.
-
-### 10. Generate the base network
-
-Before visual styling, inspect:
-
-- number of items, links, and total link strength
-- connected components and isolated items
-- unexpected dominant entities
-- duplicates, encoding errors, or malformed cited references
-- plausibility of clusters and link patterns
-
-Diagnose corpus, metadata, unit, counting, threshold, and cleaning before interpreting an implausible network.
-
-### 11. Understand normalization
-
-VOSviewer applies a similarity normalization to construct maps; association-strength normalization is commonly used in supported workflows. Record the actual method/version behavior rather than assuming a default.
-
-Normalization changes how raw co-occurrence/link counts become similarities. Do not interpret map distance as raw link count.
-
-### 12. Configure and inspect clustering
-
-Record clustering resolution and minimum cluster size or other version-supported options. Cluster color indicates algorithmic grouping under the chosen network and parameters, not a natural or definitive taxonomy.
-
-Check:
-
-- cluster size and coherence
-- representative/high-weight items
-- sensitivity to resolution, threshold, counting, and thesaurus
-- whether small or isolated clusters arise from noise or genuine specialties
-
-Read representative documents or term contexts before naming clusters.
-
-### 13. Interpret network visualization
-
-State the encodings:
-
-- item size: selected weight, such as documents, occurrences, citations, or normalized citations
-- link: the relationship defined by analysis type
-- link thickness: link strength
-- distance: approximate relatedness in the VOS mapping, not a metric to measure with a ruler
-- color: cluster or another selected attribute
-
-Avoid claiming that nearby items are causally connected.
-
-### 14. Configure overlay visualization
-
-Overlay color may represent average publication year, average citations, normalized citations, a score imported by the user, or another supported attribute.
-
-Record:
-
-- overlay variable and calculation
-- color-scale minimum/maximum
-- treatment of missing values
-- whether citation normalization was used
-- limitations from citation lag and partial years
-
-Average publication year can indicate temporal orientation, not the exact emergence date of a topic.
-
-### 15. Configure density visualization
-
-Density maps emphasize areas with many or heavily weighted nearby items. Record the item weight and visualization settings when consequential.
-
-Do not equate visual heat with research quality, clinical importance, or statistical significance.
-
-### 16. Interpret weights and links cautiously
-
-- **occurrences/documents:** frequency in the analyzed corpus
-- **citations:** database- and time-dependent attention
-- **links:** number of connected items, depending on output
-- **total link strength:** aggregate strength of an item's links under the selected network
-- **normalized citations:** relative impact only under the specific normalization method
-
-None of these directly measures methodological quality.
-
-### 17. Conduct sensitivity analyses
-
-Compare reasonable alternatives for consequential choices:
-
-- full versus fractional counting
-- minimum threshold
-- number of selected items
-- raw versus thesaurus-cleaned data
-- author keywords versus all keywords versus text terms
-- clustering resolution/minimum size
-- inclusion/exclusion of incomplete years or document types
-
-Assess stability of leading items, clusters, temporal patterns, and narrative conclusions—not identical coordinates.
-
-### 18. Export reusable outputs
-
-Preserve:
-
-- map and network files
-- item and link tables
-- screenshots/vector or high-resolution images
-- thesaurus file and audit log
-- parameter record
-- software version
-- sensitivity-run outputs
-
-Do not rely only on a screenshot that cannot be audited.
-
-### 19. Write bounded results
-
-Separate observed metrics, network interpretation, source-record verification, and limitations. Use phrases such as “within the analyzed WoS corpus” rather than implying universal coverage.
-
-### 20. Produce deliverables
-
-Return:
-
-1. corpus/import audit
-2. parameter record
-3. thesaurus and normalization log
-4. item/network statistics tables
-5. cluster interpretation table
-6. overlay/density settings
-7. sensitivity-analysis log
-8. figure specifications and legends
-9. manuscript-ready methods/results text
-10. limitations and unresolved issues
-
-## Core interpretation rules
-
-### Total link strength
-
-Interpret total link strength as the sum of link strengths for an item within the selected analysis, corpus, counting method, threshold, and cleaning rules. It is not universal influence or evidence quality.
-
-### Map distance
-
-Interpret shorter distances as generally indicating stronger relatedness under the VOS mapping. Do not report Euclidean distances as direct raw relationship measures or assume axes have substantive meaning.
-
-### Clusters
-
-Treat clusters as parameter-dependent algorithmic groupings. Validate them by inspecting item content; do not name them solely from the largest label.
-
-### Overlay year
-
-Treat average publication year as a weighted temporal summary of an item's associated records. It is not necessarily the year the concept originated.
-
-## Safeguards
-
-- Never fabricate VOSviewer outputs, item counts, thresholds, total link strengths, clusters, overlay values, or screenshots.
-- Never claim a map was generated without the output or execution record.
-- Do not infer scientific quality, causality, or clinical benefit from bibliometric prominence.
-- Preserve raw files and reversible cleaning logs.
-- Disclose database, corpus, language, index, citation-lag, and software limitations.
-- Distinguish analysis type, unit, counting, and term source precisely.
-- Verify version-specific options and defaults in current software/documentation.
-
-## Common failure modes
-
-| Failure | Correction |
-|---|---|
-| Calling every map co-occurrence | Name analysis type and unit correctly |
-| Missing cited references | Re-export required metadata |
-| Full counting used automatically | Justify and compare fractional counting when relevant |
-| Threshold chosen for attractive bubble count | Prespecify/test a defensible threshold |
-| Thesaurus merges distinct concepts | Preserve conceptual distinctions and audit changes |
-| Author/institution homonyms merged | Require corroboration or retain uncertainty |
-| Distance treated as raw strength | Use link metrics and mapping interpretation correctly |
-| Cluster colors treated as fixed truth | Report resolution/settings and inspect content |
-| Overlay year called emergence year | Describe it as average temporal orientation |
-| Density called importance | State weight and corpus-dependent meaning |
-| Citation/link strength called quality | Separate bibliometrics from critical appraisal |
-| Screenshot used as sole output | Preserve map/network/item files and parameters |
-| Partial recent years overinterpreted | Disclose incompleteness and citation lag |
-
-## Reproducibility record
-
-Record:
-
-- exact corpus and raw filenames
-- search/export provenance
-- VOSviewer version
-- input data type/source
-- analysis type and unit
-- counting method
-- threshold and number meeting/selected
-- normalization method
-- clustering resolution/minimum size
-- term source and relevance selection
-- thesaurus filename/version and audit log
-- overlay/density variables and scale
-- manual exclusions
-- item/map/network exports
-- sensitivity runs
-- figure settings
-- deviations from protocol
-
-## Manuscript-ready methods template
-
-```text
-Bibliographic records from [database/collection/indexes] were analyzed using VOSviewer [version]. A [type of analysis] analysis was conducted with [unit of analysis] using [full/fractional] counting. Items with at least [threshold definition] were eligible, of which [number] were selected. Data were normalized using [method], and clusters were generated using [resolution/minimum-size settings]. Terminology was standardized with thesaurus version [version]. Network, overlay, and density visualizations encoded [weights/attributes]. Sensitivity analyses compared [settings].
-```
-
-Do not fill bracketed fields with invented information.
-
-## Completion criteria
-
-The analysis is complete only when:
-
-- corpus provenance and import completeness are verified
-- research question matches analysis type and unit
-- counting, threshold, normalization, and clustering choices are recorded
-- thesaurus changes are reversible and justified
-- real map/network/item outputs are preserved
-- total link strength, distance, clusters, overlay, and density are interpreted within limits
-- representative items/documents are checked before thematic claims
-- reasonable parameter sensitivity is assessed
-- figures explain every consequential encoding
-- claims are bounded to the analyzed corpus
-- limitations and unresolved decisions remain visible
+结论标记为：`可支持`、`需谨慎`、`不支持`、`待核验`。缺少原始数据、参数或地图文件时，不声称已复现。
